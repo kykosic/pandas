@@ -15,7 +15,7 @@ from pandas.util.testing import assert_frame_equal
 
 @pytest.mark.filterwarnings("ignore:Sparse:FutureWarning")
 class TestGetDummies:
-@pytest.fixture(name=df)
+    @pytest.fixture(name=df)
     def df_fixture(self):
         return df(self)
 

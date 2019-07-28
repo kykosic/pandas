@@ -189,7 +189,7 @@ class Base:
 class TestFromArrays(Base):
     """Tests specific to IntervalIndex.from_arrays"""
 
-@pytest.fixture(name=constructor)
+    @pytest.fixture(name=constructor)
     def constructor_fixture(self):
         return constructor(self)
 
