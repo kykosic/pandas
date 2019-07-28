@@ -4,7 +4,7 @@ from pandas import DataFrame
 from pandas.util.testing import assert_frame_equal
 
 
-@pytest.fixture(params=[True, False], name=by_blocks_fixture)
+@pytest.fixture(params=[True, False], name="by_blocks_fixture")
 def by_blocks_fixture_fixture(request):
     return by_blocks_fixture(request)
 
@@ -13,7 +13,7 @@ def by_blocks_fixture(request):
     return request.param
 
 
-@pytest.fixture(params=["DataFrame", "Series"], name=obj_fixture)
+@pytest.fixture(params=["DataFrame", "Series"], name="obj_fixture")
 def obj_fixture_fixture(request):
     return obj_fixture(request)
 

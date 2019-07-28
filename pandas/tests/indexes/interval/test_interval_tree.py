@@ -27,7 +27,7 @@ def dtype(request):
     return request.param
 
 
-@pytest.fixture(params=[skipif_32bit(1), skipif_32bit(2), 10], name=leaf_size)
+@pytest.fixture(params=[skipif_32bit(1), skipif_32bit(2), 10], name="leaf_size")
 def leaf_size_fixture(request):
     return leaf_size(request)
 

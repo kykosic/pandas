@@ -438,7 +438,7 @@ test duplicates in time series
 """
 
 
-@pytest.fixture(name=dups)
+@pytest.fixture(name="dups")
 def dups_fixture():
     return dups()
 

@@ -5,7 +5,7 @@ from pandas import DataFrame, Index, MultiIndex
 from pandas.util import testing as tm
 
 
-@pytest.fixture(name=multiindex_dataframe_random_data)
+@pytest.fixture(name="multiindex_dataframe_random_data")
 def multiindex_dataframe_random_data_fixture():
     return multiindex_dataframe_random_data()
 
@@ -22,7 +22,7 @@ def multiindex_dataframe_random_data():
     )
 
 
-@pytest.fixture(name=multiindex_year_month_day_dataframe_random_data)
+@pytest.fixture(name="multiindex_year_month_day_dataframe_random_data")
 def multiindex_year_month_day_dataframe_random_data_fixture():
     return multiindex_year_month_day_dataframe_random_data()
 

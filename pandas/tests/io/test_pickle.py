@@ -31,7 +31,7 @@ import pandas.util.testing as tm
 from pandas.tseries.offsets import Day, MonthEnd
 
 
-@pytest.fixture(scope="module", name=current_pickle_data)
+@pytest.fixture(scope="module", name="current_pickle_data")
 def current_pickle_data_fixture():
     return current_pickle_data()
 
@@ -146,7 +146,7 @@ files = glob.glob(
 )
 
 
-@pytest.fixture(params=files, name=legacy_pickle)
+@pytest.fixture(params=files, name="legacy_pickle")
 def legacy_pickle_fixture(request, datapath):
     return legacy_pickle(request, datapath)
 
@@ -250,7 +250,7 @@ def test_pickle_path_localpath():
 # ---------------------
 
 
-@pytest.fixture(name=get_random_path)
+@pytest.fixture(name="get_random_path")
 def get_random_path_fixture():
     return get_random_path()
 

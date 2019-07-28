@@ -18,7 +18,7 @@ import pandas.io.parsers as parsers
 from pandas.io.parsers import read_csv
 
 
-@pytest.fixture(params=["python", "python-fwf"], ids=lambda val: val, name=python_engine)
+@pytest.fixture(params=["python", "python-fwf"], ids=lambda val: val, name="python_engine")
 def python_engine_fixture(request):
     return python_engine(request)
 

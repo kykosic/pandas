@@ -7,7 +7,7 @@ import pandas.util.testing as tm
 from pandas.io.parsers import read_csv
 
 
-@pytest.fixture(name=tips_file)
+@pytest.fixture(name="tips_file")
 def tips_file_fixture(datapath):
     return tips_file(datapath)
 
@@ -17,7 +17,7 @@ def tips_file(datapath):
     return datapath("io", "parser", "data", "tips.csv")
 
 
-@pytest.fixture(name=jsonl_file)
+@pytest.fixture(name="jsonl_file")
 def jsonl_file_fixture(datapath):
     return jsonl_file(datapath)
 
@@ -27,7 +27,7 @@ def jsonl_file(datapath):
     return datapath("io", "parser", "data", "items.jsonl")
 
 
-@pytest.fixture(name=salaries_table)
+@pytest.fixture(name="salaries_table")
 def salaries_table_fixture(datapath):
     return salaries_table(datapath)
 
@@ -37,7 +37,7 @@ def salaries_table(datapath):
     return read_csv(datapath("io", "parser", "data", "salaries.csv"), sep="\t")
 
 
-@pytest.fixture(name=s3_resource)
+@pytest.fixture(name="s3_resource")
 def s3_resource_fixture(tips_file, jsonl_file):
     return s3_resource(tips_file, jsonl_file)
 

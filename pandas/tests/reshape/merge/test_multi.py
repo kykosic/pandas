@@ -12,7 +12,7 @@ from pandas.core.reshape.merge import merge
 import pandas.util.testing as tm
 
 
-@pytest.fixture(name=left)
+@pytest.fixture(name="left")
 def left_fixture():
     return left()
 
@@ -27,7 +27,7 @@ def left():
     return DataFrame({"key1": key1, "key2": key2, "data": data})
 
 
-@pytest.fixture(name=right)
+@pytest.fixture(name="right")
 def right_fixture():
     return right()
 
@@ -45,7 +45,7 @@ def right():
     )
 
 
-@pytest.fixture(name=left_multi)
+@pytest.fixture(name="left_multi")
 def left_multi_fixture():
     return left_multi()
 
@@ -63,7 +63,7 @@ def left_multi():
     ).set_index(["Origin", "Destination", "Period", "TripPurp"])
 
 
-@pytest.fixture(name=right_multi)
+@pytest.fixture(name="right_multi")
 def right_multi_fixture():
     return right_multi()
 
@@ -81,7 +81,7 @@ def right_multi():
     ).set_index(["Origin", "Destination", "Period", "LinkType"])
 
 
-@pytest.fixture(name=on_cols_multi)
+@pytest.fixture(name="on_cols_multi")
 def on_cols_multi_fixture():
     return on_cols_multi()
 
@@ -90,7 +90,7 @@ def on_cols_multi():
     return ["Origin", "Destination", "Period"]
 
 
-@pytest.fixture(name=idx_cols_multi)
+@pytest.fixture(name="idx_cols_multi")
 def idx_cols_multi_fixture():
     return idx_cols_multi()
 

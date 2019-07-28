@@ -5,7 +5,7 @@ from pandas import DataFrame, MultiIndex, Series
 from pandas.util import testing as tm
 
 
-@pytest.fixture(name=simple_multiindex_dataframe)
+@pytest.fixture(name="simple_multiindex_dataframe")
 def simple_multiindex_dataframe_fixture():
     return simple_multiindex_dataframe()
 

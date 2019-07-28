@@ -202,7 +202,7 @@ def test_frame_mixed_depth_get():
 # ----------------------------------------------------------------------------
 
 
-@pytest.fixture(name=dataframe_with_duplicate_index)
+@pytest.fixture(name="dataframe_with_duplicate_index")
 def dataframe_with_duplicate_index_fixture():
     return dataframe_with_duplicate_index()
 

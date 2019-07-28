@@ -2078,7 +2078,7 @@ class TestDatetimeParsingWrappers:
         assert dt_string_repr == repr(dt_time)
 
 
-@pytest.fixture(params=["D", "s", "ms", "us", "ns"], name=units)
+@pytest.fixture(params=["D", "s", "ms", "us", "ns"], name="units")
 def units_fixture(request):
     return units(request)
 
@@ -2095,7 +2095,7 @@ def units(request):
     return request.param
 
 
-@pytest.fixture(name=epoch_1960)
+@pytest.fixture(name="epoch_1960")
 def epoch_1960_fixture():
     return epoch_1960()
 
@@ -2105,7 +2105,7 @@ def epoch_1960():
     return Timestamp("1960-01-01")
 
 
-@pytest.fixture(name=units_from_epochs)
+@pytest.fixture(name="units_from_epochs")
 def units_from_epochs_fixture():
     return units_from_epochs()
 
@@ -2114,7 +2114,7 @@ def units_from_epochs():
     return list(range(5))
 
 
-@pytest.fixture(params=["timestamp", "pydatetime", "datetime64", "str_1960"], name=epochs)
+@pytest.fixture(params=["timestamp", "pydatetime", "datetime64", "str_1960"], name="epochs")
 def epochs_fixture(epoch_1960, request):
     return epochs(epoch_1960, request)
 
@@ -2138,7 +2138,7 @@ def epochs(epoch_1960, request):
         return str(epoch_1960)
 
 
-@pytest.fixture(name=julian_dates)
+@pytest.fixture(name="julian_dates")
 def julian_dates_fixture():
     return julian_dates()
 

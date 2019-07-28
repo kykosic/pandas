@@ -5,7 +5,7 @@ from pandas import DataFrame, Series, Timestamp, date_range, to_datetime
 import pandas.util.testing as tm
 
 
-@pytest.fixture(name=date_range_frame)
+@pytest.fixture(name="date_range_frame")
 def date_range_frame_fixture():
     return date_range_frame()
 

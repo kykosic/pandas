@@ -36,7 +36,7 @@ from pandas.util.testing import (
 PY361 = LooseVersion(sys.version) >= LooseVersion("3.6.1")
 
 
-@pytest.fixture(name=mgr)
+@pytest.fixture(name="mgr")
 def mgr_fixture():
     return mgr()
 

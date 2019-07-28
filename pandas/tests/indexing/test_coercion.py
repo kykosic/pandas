@@ -13,7 +13,7 @@ import pandas.util.testing as tm
 ###############################################################
 
 
-@pytest.fixture(autouse=True, scope="class", name=check_comprehensiveness)
+@pytest.fixture(autouse=True, scope="class", name="check_comprehensiveness")
 def check_comprehensiveness_fixture(request):
     return check_comprehensiveness(request)
 

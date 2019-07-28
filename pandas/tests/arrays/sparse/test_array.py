@@ -15,7 +15,7 @@ import pandas.util.testing as tm
 from pandas.util.testing import assert_almost_equal
 
 
-@pytest.fixture(params=["integer", "block"], name=kind)
+@pytest.fixture(params=["integer", "block"], name="kind")
 def kind_fixture(request):
     return kind(request)
 

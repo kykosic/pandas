@@ -5,7 +5,7 @@ from pandas import DataFrame
 from pandas.util.testing import assert_frame_equal
 
 
-@pytest.fixture(name=df1)
+@pytest.fixture(name="df1")
 def df1_fixture():
     return df1()
 
@@ -20,7 +20,7 @@ def df1():
     )
 
 
-@pytest.fixture(name=df2)
+@pytest.fixture(name="df2")
 def df2_fixture():
     return df2()
 
@@ -35,7 +35,7 @@ def df2():
     )
 
 
-@pytest.fixture(params=[[], ["outer"], ["outer", "inner"]], name=left_df)
+@pytest.fixture(params=[[], ["outer"], ["outer", "inner"]], name="left_df")
 def left_df_fixture(request, df1):
     return left_df(request, df1)
 
@@ -50,7 +50,7 @@ def left_df(request, df1):
     return df1
 
 
-@pytest.fixture(params=[[], ["outer"], ["outer", "inner"]], name=right_df)
+@pytest.fixture(params=[[], ["outer"], ["outer", "inner"]], name="right_df")
 def right_df_fixture(request, df2):
     return right_df(request, df2)
 

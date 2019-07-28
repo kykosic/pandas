@@ -8,7 +8,7 @@ import pandas.core.common as com
 from pandas.util import testing as tm
 
 
-@pytest.fixture(name=four_level_index_dataframe)
+@pytest.fixture(name="four_level_index_dataframe")
 def four_level_index_dataframe_fixture():
     return four_level_index_dataframe()
 

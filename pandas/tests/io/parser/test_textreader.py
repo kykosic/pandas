@@ -20,10 +20,9 @@ from pandas.io.parsers import TextFileReader, read_csv
 
 
 class TestTextReader:
-    @pytest.fixture(autouse=True, name=setup_method)
+    @pytest.fixture(autouse=True, name="setup_method")
     def setup_method_fixture(self, datapath):
-        return setup_method(self, datapath)
-
+        return self.setup_method(datapath)
 
     def setup_method(self, datapath):
         self.dirpath = datapath("io", "parser", "data")

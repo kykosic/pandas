@@ -24,7 +24,7 @@ def delta(request):
     return request.param
 
 
-@pytest.fixture(params=["B", "D"], name=freq)
+@pytest.fixture(params=["B", "D"], name="freq")
 def freq_fixture(request):
     return freq(request)
 

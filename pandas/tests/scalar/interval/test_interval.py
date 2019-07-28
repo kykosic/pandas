@@ -5,7 +5,7 @@ from pandas import Interval, Period, Timedelta, Timestamp
 import pandas.core.common as com
 
 
-@pytest.fixture(name=interval)
+@pytest.fixture(name="interval")
 def interval_fixture():
     return interval()
 

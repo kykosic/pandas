@@ -25,7 +25,7 @@ import pandas.tseries.offsets as offsets
 from pandas.tseries.offsets import BDay, Minute
 
 
-@pytest.fixture(, name=_index_factory)
+@pytest.fixture(, name="_index_factory")
 def _index_factory_fixture():
     return _index_factory()
 
@@ -34,7 +34,7 @@ def _index_factory():
     return date_range
 
 
-@pytest.fixture(name=_index_freq)
+@pytest.fixture(name="_index_freq")
 def _index_freq_fixture():
     return _index_freq()
 
@@ -43,7 +43,7 @@ def _index_freq():
     return "Min"
 
 
-@pytest.fixture(name=_static_values)
+@pytest.fixture(name="_static_values")
 def _static_values_fixture(index):
     return _static_values(index)
 

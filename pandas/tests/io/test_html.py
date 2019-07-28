@@ -93,10 +93,9 @@ def test_same_ordering(datapath):
     scope="class",
 )
 class TestReadHtml:
-    @pytest.fixture(autouse=True, name=set_files)
+    @pytest.fixture(autouse=True, name="set_files")
     def set_files_fixture(self, datapath):
-        return set_files(self, datapath)
-
+        return self.set_files(datapath)
 
     def set_files(self, datapath):
         self.spam_data = datapath("io", "data", "spam.html")
@@ -104,10 +103,9 @@ class TestReadHtml:
         self.spam_data_kwargs["encoding"] = "UTF-8"
         self.banklist_data = datapath("io", "data", "banklist.html")
 
-    @pytest.fixture(autouse=True, scope="function", name=set_defaults)
+    @pytest.fixture(autouse=True, scope="function", name="set_defaults")
     def set_defaults_fixture(self, flavor, request):
-        return set_defaults(self, flavor, request)
-
+        return self.set_defaults(flavor, request)
 
     def set_defaults(self, flavor, request):
         self.read_html = partial(read_html, flavor=flavor)

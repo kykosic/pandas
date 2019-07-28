@@ -68,7 +68,7 @@ def get_series_na():
     ]
 
 
-@pytest.fixture(params=get_series(), ids=lambda x: x.dtype.name, name=series_of_dtype)
+@pytest.fixture(params=get_series(), ids=lambda x: x.dtype.name, name="series_of_dtype")
 def series_of_dtype_fixture(request):
     return series_of_dtype(request)
 
@@ -81,7 +81,7 @@ def series_of_dtype(request):
     return request.param
 
 
-@pytest.fixture(params=get_series(), ids=lambda x: x.dtype.name, name=series_of_dtype2)
+@pytest.fixture(params=get_series(), ids=lambda x: x.dtype.name, name="series_of_dtype2")
 def series_of_dtype2_fixture(request):
     return series_of_dtype2(request)
 
@@ -94,7 +94,7 @@ def series_of_dtype2(request):
     return request.param
 
 
-@pytest.fixture(params=get_series_na(), ids=lambda x: x.dtype.name, name=series_of_dtype_all_na)
+@pytest.fixture(params=get_series_na(), ids=lambda x: x.dtype.name, name="series_of_dtype_all_na")
 def series_of_dtype_all_na_fixture(request):
     return series_of_dtype_all_na(request)
 
@@ -1566,7 +1566,7 @@ class TestMergeDtypes:
             pd.merge(df2, df1, on=["A"])
 
 
-@pytest.fixture(name=left)
+@pytest.fixture(name="left")
 def left_fixture():
     return left()
 
@@ -1583,7 +1583,7 @@ def left():
     )
 
 
-@pytest.fixture(name=right)
+@pytest.fixture(name="right")
 def right_fixture():
     return right()
 
@@ -1831,7 +1831,7 @@ class TestMergeCategorical:
         assert_frame_equal(result, expected)
 
 
-@pytest.fixture(name=left_df)
+@pytest.fixture(name="left_df")
 def left_df_fixture():
     return left_df()
 
@@ -1840,7 +1840,7 @@ def left_df():
     return DataFrame({"a": [20, 10, 0]}, index=[2, 1, 0])
 
 
-@pytest.fixture(name=right_df)
+@pytest.fixture(name="right_df")
 def right_df_fixture():
     return right_df()
 

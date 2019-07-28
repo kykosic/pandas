@@ -3,7 +3,7 @@ import pytest
 from pandas.core.frame import DataFrame
 
 
-@pytest.fixture(name=dataframe)
+@pytest.fixture(name="dataframe")
 def dataframe_fixture():
     return dataframe()
 

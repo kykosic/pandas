@@ -3,7 +3,7 @@ import pytest
 import pandas.util.testing as tm
 
 
-@pytest.fixture(name=datetime_series)
+@pytest.fixture(name="datetime_series")
 def datetime_series_fixture():
     return datetime_series()
 
@@ -17,7 +17,7 @@ def datetime_series():
     return s
 
 
-@pytest.fixture(name=string_series)
+@pytest.fixture(name="string_series")
 def string_series_fixture():
     return string_series()
 
@@ -31,7 +31,7 @@ def string_series():
     return s
 
 
-@pytest.fixture(name=object_series)
+@pytest.fixture(name="object_series")
 def object_series_fixture():
     return object_series()
 

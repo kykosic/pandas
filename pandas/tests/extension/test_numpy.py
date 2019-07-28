@@ -10,7 +10,7 @@ import pandas.util.testing as tm
 from . import base
 
 
-@pytest.fixture(params=["float", "object"], name=dtype)
+@pytest.fixture(params=["float", "object"], name="dtype")
 def dtype_fixture(request):
     return dtype(request)
 
@@ -19,7 +19,7 @@ def dtype(request):
     return PandasDtype(np.dtype(request.param))
 
 
-@pytest.fixture(name=allow_in_pandas)
+@pytest.fixture(name="allow_in_pandas")
 def allow_in_pandas_fixture(monkeypatch):
     return allow_in_pandas(monkeypatch)
 
@@ -45,7 +45,7 @@ def allow_in_pandas(monkeypatch):
         yield
 
 
-@pytest.fixture(name=data)
+@pytest.fixture(name="data")
 def data_fixture(allow_in_pandas, dtype):
     return data(allow_in_pandas, dtype)
 
@@ -56,7 +56,7 @@ def data(allow_in_pandas, dtype):
     return PandasArray(np.arange(1, 101, dtype=dtype._dtype))
 
 
-@pytest.fixture(name=data_missing)
+@pytest.fixture(name="data_missing")
 def data_missing_fixture(allow_in_pandas, dtype):
     return data_missing(allow_in_pandas, dtype)
 
@@ -71,7 +71,7 @@ def data_missing(allow_in_pandas, dtype):
     return PandasArray(np.array([np.nan, 1.0]))
 
 
-@pytest.fixture(name=na_value)
+@pytest.fixture(name="na_value")
 def na_value_fixture():
     return na_value()
 
@@ -80,7 +80,7 @@ def na_value():
     return np.nan
 
 
-@pytest.fixture(name=na_cmp)
+@pytest.fixture(name="na_cmp")
 def na_cmp_fixture():
     return na_cmp()
 
@@ -92,7 +92,7 @@ def na_cmp():
     return cmp
 
 
-@pytest.fixture(name=data_for_sorting)
+@pytest.fixture(name="data_for_sorting")
 def data_for_sorting_fixture(allow_in_pandas, dtype):
     return data_for_sorting(allow_in_pandas, dtype)
 
@@ -110,7 +110,7 @@ def data_for_sorting(allow_in_pandas, dtype):
     return PandasArray(np.array([1, 2, 0]))
 
 
-@pytest.fixture(name=data_missing_for_sorting)
+@pytest.fixture(name="data_missing_for_sorting")
 def data_missing_for_sorting_fixture(allow_in_pandas, dtype):
     return data_missing_for_sorting(allow_in_pandas, dtype)
 
@@ -126,7 +126,7 @@ def data_missing_for_sorting(allow_in_pandas, dtype):
     return PandasArray(np.array([1, np.nan, 0]))
 
 
-@pytest.fixture(name=data_for_grouping)
+@pytest.fixture(name="data_for_grouping")
 def data_for_grouping_fixture(allow_in_pandas, dtype):
     return data_for_grouping(allow_in_pandas, dtype)
 
@@ -145,7 +145,7 @@ def data_for_grouping(allow_in_pandas, dtype):
     return PandasArray(np.array([b, b, np.nan, np.nan, a, a, b, c]))
 
 
-@pytest.fixture(name=skip_numpy_object)
+@pytest.fixture(name="skip_numpy_object")
 def skip_numpy_object_fixture(dtype):
     return skip_numpy_object(dtype)
 

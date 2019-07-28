@@ -26,7 +26,7 @@ from pandas.io.stata import (
 )
 
 
-@pytest.fixture(name=dirpath)
+@pytest.fixture(name="dirpath")
 def dirpath_fixture(datapath):
     return dirpath(datapath)
 
@@ -35,7 +35,7 @@ def dirpath(datapath):
     return datapath("io", "data")
 
 
-@pytest.fixture(name=parsed_114)
+@pytest.fixture(name="parsed_114")
 def parsed_114_fixture(dirpath):
     return parsed_114(dirpath)
 
@@ -48,10 +48,9 @@ def parsed_114(dirpath):
 
 
 class TestStata:
-    @pytest.fixture(autouse=True, name=setup_method)
+    @pytest.fixture(autouse=True, name="setup_method")
     def setup_method_fixture(self, datapath):
-        return setup_method(self, datapath)
-
+        return self.setup_method(datapath)
 
     def setup_method(self, datapath):
         self.dirpath = datapath("io", "data")

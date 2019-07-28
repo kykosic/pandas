@@ -24,7 +24,7 @@ class CustomBlock(NonConsolidatableMixIn, Block):
         )
 
 
-@pytest.fixture(name=df)
+@pytest.fixture(name="df")
 def df_fixture():
     return df()
 

@@ -40,7 +40,7 @@ def dtype(request):
     return request.param()
 
 
-@pytest.fixture(name=data)
+@pytest.fixture(name="data")
 def data_fixture(dtype):
     return data(dtype)
 
@@ -49,7 +49,7 @@ def data(dtype):
     return integer_array(make_data(), dtype=dtype)
 
 
-@pytest.fixture(name=data_missing)
+@pytest.fixture(name="data_missing")
 def data_missing_fixture(dtype):
     return data_missing(dtype)
 
@@ -58,7 +58,7 @@ def data_missing(dtype):
     return integer_array([np.nan, 1], dtype=dtype)
 
 
-@pytest.fixture(params=["data", "data_missing"], name=all_data)
+@pytest.fixture(params=["data", "data_missing"], name="all_data")
 def all_data_fixture(request, data, data_missing):
     return all_data(request, data, data_missing)
 

@@ -44,7 +44,7 @@ def expected_html(datapath, name):
     return html.rstrip()
 
 
-@pytest.fixture(params=["mixed", "empty"], name=biggie_df_fixture)
+@pytest.fixture(params=["mixed", "empty"], name="biggie_df_fixture")
 def biggie_df_fixture_fixture(request):
     return biggie_df_fixture(request)
 
@@ -64,7 +64,7 @@ def biggie_df_fixture(request):
         return df
 
 
-@pytest.fixture(params=fmt._VALID_JUSTIFY_PARAMETERS, name=justify)
+@pytest.fixture(params=fmt._VALID_JUSTIFY_PARAMETERS, name="justify")
 def justify_fixture(request):
     return justify(request)
 

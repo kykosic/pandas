@@ -7,7 +7,7 @@ import pandas as pd
 
 # Fixtures
 # ========
-@pytest.fixture(name=df)
+@pytest.fixture(name="df")
 def df_fixture():
     return df()
 
@@ -17,7 +17,7 @@ def df():
     return pd.DataFrame({"L1": [1, 2, 3], "L2": [11, 12, 13], "L3": ["A", "B", "C"]})
 
 
-@pytest.fixture(params=[[], ["L1"], ["L1", "L2"], ["L1", "L2", "L3"]], name=df_levels)
+@pytest.fixture(params=[[], ["L1"], ["L1", "L2"], ["L1", "L2", "L3"]], name="df_levels")
 def df_levels_fixture(request, df):
     return df_levels(request, df)
 
@@ -32,7 +32,7 @@ def df_levels(request, df):
     return df
 
 
-@pytest.fixture(name=df_ambig)
+@pytest.fixture(name="df_ambig")
 def df_ambig_fixture(df):
     return df_ambig(df)
 
@@ -46,7 +46,7 @@ def df_ambig(df):
     return df
 
 
-@pytest.fixture(name=df_duplabels)
+@pytest.fixture(name="df_duplabels")
 def df_duplabels_fixture(df):
     return df_duplabels(df)
 

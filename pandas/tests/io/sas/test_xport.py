@@ -21,10 +21,9 @@ def numeric_as_float(data):
 
 
 class TestXport:
-    @pytest.fixture(autouse=True, name=setup_method)
+    @pytest.fixture(autouse=True, name="setup_method")
     def setup_method_fixture(self, datapath):
-        return setup_method(self, datapath)
-
+        return self.setup_method(datapath)
 
     def setup_method(self, datapath):
         self.dirpath = datapath("io", "sas", "data")

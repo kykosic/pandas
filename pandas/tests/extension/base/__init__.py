@@ -19,7 +19,7 @@ file.
    from pandas.tests.extension.base import BaseDtypeTests
 
 
-   @pytest.fixture(name=dtype)
+   @pytest.fixture(name="dtype")
    def dtype_fixture():
        return dtype()
 

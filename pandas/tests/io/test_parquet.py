@@ -55,7 +55,7 @@ def engine(request):
     return request.param
 
 
-@pytest.fixture(name=pa)
+@pytest.fixture(name="pa")
 def pa_fixture():
     return pa()
 
@@ -66,7 +66,7 @@ def pa():
     return "pyarrow"
 
 
-@pytest.fixture(name=fp)
+@pytest.fixture(name="fp")
 def fp_fixture():
     return fp()
 
@@ -77,7 +77,7 @@ def fp():
     return "fastparquet"
 
 
-@pytest.fixture(name=df_compat)
+@pytest.fixture(name="df_compat")
 def df_compat_fixture():
     return df_compat()
 
@@ -86,7 +86,7 @@ def df_compat():
     return pd.DataFrame({"A": [1, 2, 3], "B": "foo"})
 
 
-@pytest.fixture(name=df_cross_compat)
+@pytest.fixture(name="df_cross_compat")
 def df_cross_compat_fixture():
     return df_cross_compat()
 
@@ -108,7 +108,7 @@ def df_cross_compat():
     return df
 
 
-@pytest.fixture(name=df_full)
+@pytest.fixture(name="df_full")
 def df_full_fixture():
     return df_full()
 

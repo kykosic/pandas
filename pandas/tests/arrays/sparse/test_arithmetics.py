@@ -9,7 +9,7 @@ from pandas.core.sparse.api import SparseDtype
 import pandas.util.testing as tm
 
 
-@pytest.fixture(params=["integer", "block"], name=kind)
+@pytest.fixture(params=["integer", "block"], name="kind")
 def kind_fixture(request):
     return kind(request)
 
@@ -19,7 +19,7 @@ def kind(request):
     return request.param
 
 
-@pytest.fixture(params=[True, False], name=mix)
+@pytest.fixture(params=[True, False], name="mix")
 def mix_fixture(request):
     return mix(request)
 

@@ -12,7 +12,7 @@ from pandas.io.json import json_normalize
 from pandas.io.json._normalize import nested_to_record
 
 
-@pytest.fixture(name=deep_nested)
+@pytest.fixture(name="deep_nested")
 def deep_nested_fixture():
     return deep_nested()
 
@@ -55,7 +55,7 @@ def deep_nested():
     ]
 
 
-@pytest.fixture(name=state_data)
+@pytest.fixture(name="state_data")
 def state_data_fixture():
     return state_data()
 
@@ -84,7 +84,7 @@ def state_data():
     ]
 
 
-@pytest.fixture(name=author_missing_data)
+@pytest.fixture(name="author_missing_data")
 def author_missing_data_fixture():
     return author_missing_data()
 
@@ -99,7 +99,7 @@ def author_missing_data():
     ]
 
 
-@pytest.fixture(name=missing_metadata)
+@pytest.fixture(name="missing_metadata")
 def missing_metadata_fixture():
     return missing_metadata()
 
@@ -132,7 +132,7 @@ def missing_metadata():
     ]
 
 
-@pytest.fixture(name=max_level_test_input_data)
+@pytest.fixture(name="max_level_test_input_data")
 def max_level_test_input_data_fixture():
     return max_level_test_input_data()
 

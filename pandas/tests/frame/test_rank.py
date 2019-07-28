@@ -20,10 +20,9 @@ class TestRank:
         "dense": np.array([1, 3, 4, 2, np.nan, 2, 1, 5, np.nan, 3]),
     }
 
-    @pytest.fixture(params=["average", "min", "max", "first", "dense"], name=method)
+    @pytest.fixture(params=["average", "min", "max", "first", "dense"], name="method")
     def method_fixture(self, request):
-        return method(self, request)
-
+        return self.method(request)
 
     def method(self, request):
         """

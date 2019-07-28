@@ -50,7 +50,7 @@ df_whitelist = [
 ]
 
 
-@pytest.fixture(params=df_whitelist, name=df_whitelist_fixture)
+@pytest.fixture(params=df_whitelist, name="df_whitelist_fixture")
 def df_whitelist_fixture_fixture(request):
     return df_whitelist_fixture(request)
 
@@ -82,7 +82,7 @@ s_whitelist = [
 ]
 
 
-@pytest.fixture(params=s_whitelist, name=s_whitelist_fixture)
+@pytest.fixture(params=s_whitelist, name="s_whitelist_fixture")
 def s_whitelist_fixture_fixture(request):
     return s_whitelist_fixture(request)
 
@@ -91,7 +91,7 @@ def s_whitelist_fixture(request):
     return request.param
 
 
-@pytest.fixture(name=mframe)
+@pytest.fixture(name="mframe")
 def mframe_fixture():
     return mframe()
 
@@ -105,7 +105,7 @@ def mframe():
     return DataFrame(np.random.randn(10, 3), index=index, columns=["A", "B", "C"])
 
 
-@pytest.fixture(name=df)
+@pytest.fixture(name="df")
 def df_fixture():
     return df()
 
@@ -121,7 +121,7 @@ def df():
     )
 
 
-@pytest.fixture(name=df_letters)
+@pytest.fixture(name="df_letters")
 def df_letters_fixture():
     return df_letters()
 
@@ -187,7 +187,7 @@ def test_groupby_frame_whitelist(df_letters, df_whitelist_fixture):
     check_whitelist(df, df, m)
 
 
-@pytest.fixture(name=raw_frame)
+@pytest.fixture(name="raw_frame")
 def raw_frame_fixture():
     return raw_frame()
 

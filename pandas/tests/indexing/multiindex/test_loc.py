@@ -9,7 +9,7 @@ from pandas.core.indexing import IndexingError
 from pandas.util import testing as tm
 
 
-@pytest.fixture(name=single_level_multiindex)
+@pytest.fixture(name="single_level_multiindex")
 def single_level_multiindex_fixture():
     return single_level_multiindex()
 
@@ -21,7 +21,7 @@ def single_level_multiindex():
     )
 
 
-@pytest.fixture(name=frame_random_data_integer_multi_index)
+@pytest.fixture(name="frame_random_data_integer_multi_index")
 def frame_random_data_integer_multi_index_fixture():
     return frame_random_data_integer_multi_index()
 

@@ -54,7 +54,7 @@ from pandas import (
 from pandas.util import testing as tm
 
 
-@pytest.fixture(params=[True, False], ids=str, name=coerce)
+@pytest.fixture(params=[True, False], ids=str, name="coerce")
 def coerce_fixture(request):
     return coerce(request)
 
@@ -110,7 +110,7 @@ ll_params = [
 objs, expected, ids = zip(*ll_params)
 
 
-@pytest.fixture(params=zip(objs, expected), ids=ids, name=maybe_list_like)
+@pytest.fixture(params=zip(objs, expected), ids=ids, name="maybe_list_like")
 def maybe_list_like_fixture(request):
     return maybe_list_like(request)
 

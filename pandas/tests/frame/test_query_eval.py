@@ -20,7 +20,7 @@ PARSERS = "python", "pandas"
 ENGINES = "python", pytest.param("numexpr", marks=td.skip_if_no_ne)
 
 
-@pytest.fixture(params=PARSERS, ids=lambda x: x, name=parser)
+@pytest.fixture(params=PARSERS, ids=lambda x: x, name="parser")
 def parser_fixture(request):
     return parser(request)
 
@@ -29,7 +29,7 @@ def parser(request):
     return request.param
 
 
-@pytest.fixture(params=ENGINES, ids=lambda x: x, name=engine)
+@pytest.fixture(params=ENGINES, ids=lambda x: x, name="engine")
 def engine_fixture(request):
     return engine(request)
 
@@ -1058,10 +1058,9 @@ class TestDataFrameEvalWithFrame:
 
 
 class TestDataFrameQueryBacktickQuoting:
-    @pytest.fixture(scope="class", name=df)
+    @pytest.fixture(scope="class", name="df")
     def df_fixture(self):
-        return df(self)
-
+        return self.df()
 
     def df(self):
         yield DataFrame(

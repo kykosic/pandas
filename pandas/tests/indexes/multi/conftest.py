@@ -5,7 +5,7 @@ import pandas as pd
 from pandas import Index, MultiIndex
 
 
-@pytest.fixture(name=idx)
+@pytest.fixture(name="idx")
 def idx_fixture():
     return idx()
 
@@ -28,7 +28,7 @@ def idx():
     return mi
 
 
-@pytest.fixture(name=idx_dup)
+@pytest.fixture(name="idx_dup")
 def idx_dup_fixture():
     return idx_dup()
 
@@ -50,7 +50,7 @@ def idx_dup():
     return mi
 
 
-@pytest.fixture(name=index_names)
+@pytest.fixture(name="index_names")
 def index_names_fixture():
     return index_names()
 
@@ -61,7 +61,7 @@ def index_names():
     return ["first", "second"]
 
 
-@pytest.fixture(name=holder)
+@pytest.fixture(name="holder")
 def holder_fixture():
     return holder()
 
@@ -71,7 +71,7 @@ def holder():
     return MultiIndex
 
 
-@pytest.fixture(name=compat_props)
+@pytest.fixture(name="compat_props")
 def compat_props_fixture():
     return compat_props()
 
@@ -81,7 +81,7 @@ def compat_props():
     return ["shape", "ndim", "size"]
 
 
-@pytest.fixture(name=narrow_multi_index)
+@pytest.fixture(name="narrow_multi_index")
 def narrow_multi_index_fixture():
     return narrow_multi_index()
 
@@ -96,7 +96,7 @@ def narrow_multi_index():
     return pd.MultiIndex.from_arrays([ci, ci.codes + 9, dti], names=["a", "b", "dti"])
 
 
-@pytest.fixture(name=wide_multi_index)
+@pytest.fixture(name="wide_multi_index")
 def wide_multi_index_fixture():
     return wide_multi_index()
 

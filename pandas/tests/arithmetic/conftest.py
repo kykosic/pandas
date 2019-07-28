@@ -19,7 +19,7 @@ def id_func(x):
 # ------------------------------------------------------------------
 
 
-@pytest.fixture(params=[1, np.array(1, dtype=np.int64)], name=one)
+@pytest.fixture(params=[1, np.array(1, dtype=np.int64)], name="one")
 def one_fixture(request):
     return one(request)
 
@@ -42,7 +42,7 @@ zeros.extend([np.array(-0.0, dtype=np.float64)])
 zeros.extend([0, 0.0, -0.0])
 
 
-@pytest.fixture(params=zeros, name=zero)
+@pytest.fixture(params=zeros, name="zero")
 def zero_fixture(request):
     return zero(request)
 
@@ -188,7 +188,7 @@ def mismatched_freq(request):
 # ------------------------------------------------------------------
 
 
-@pytest.fixture(params=[pd.Index, pd.Series, pd.DataFrame], ids=id_func, name=box)
+@pytest.fixture(params=[pd.Index, pd.Series, pd.DataFrame], ids=id_func, name="box")
 def box_fixture(request):
     return box(request)
 
@@ -230,7 +230,7 @@ def box_transpose_fail(request):
     return request.param
 
 
-@pytest.fixture(params=[pd.Index, pd.Series, pd.DataFrame, tm.to_array], ids=id_func, name=box_with_array)
+@pytest.fixture(params=[pd.Index, pd.Series, pd.DataFrame, tm.to_array], ids=id_func, name="box_with_array")
 def box_with_array_fixture(request):
     return box_with_array(request)
 

@@ -45,7 +45,7 @@ def check_compressed_urls(salaries_table, compression, extension, mode, engine):
     tm.assert_frame_equal(url_table, salaries_table)
 
 
-@pytest.fixture(name=tips_df)
+@pytest.fixture(name="tips_df")
 def tips_df_fixture(datapath):
     return tips_df(datapath)
 

@@ -16,7 +16,7 @@ dates = bdate_range("1/1/2011", periods=10)
 # tests/frame/test_api.SharedWithSparse
 
 
-@pytest.fixture(name=float_frame_dense)
+@pytest.fixture(name="float_frame_dense")
 def float_frame_dense_fixture():
     return float_frame_dense()
 
@@ -30,7 +30,7 @@ def float_frame_dense():
     return DataFrame(data, index=dates)
 
 
-@pytest.fixture(name=float_frame)
+@pytest.fixture(name="float_frame")
 def float_frame_fixture():
     return float_frame()
 
@@ -45,7 +45,7 @@ def float_frame():
     return SparseDataFrame(data, index=dates, default_kind="block")
 
 
-@pytest.fixture(name=float_frame_int_kind)
+@pytest.fixture(name="float_frame_int_kind")
 def float_frame_int_kind_fixture():
     return float_frame_int_kind()
 
@@ -60,7 +60,7 @@ def float_frame_int_kind():
     return SparseDataFrame(data, index=dates, default_kind="integer")
 
 
-@pytest.fixture(name=float_string_frame)
+@pytest.fixture(name="float_string_frame")
 def float_string_frame_fixture():
     return float_string_frame()
 
@@ -76,7 +76,7 @@ def float_string_frame():
     return sdf
 
 
-@pytest.fixture(name=float_frame_fill0_dense)
+@pytest.fixture(name="float_frame_fill0_dense")
 def float_frame_fill0_dense_fixture():
     return float_frame_fill0_dense()
 
@@ -92,7 +92,7 @@ def float_frame_fill0_dense():
     return DataFrame(values, columns=["A", "B", "C", "D"], index=dates)
 
 
-@pytest.fixture(name=float_frame_fill0)
+@pytest.fixture(name="float_frame_fill0")
 def float_frame_fill0_fixture():
     return float_frame_fill0()
 
@@ -110,7 +110,7 @@ def float_frame_fill0():
     )
 
 
-@pytest.fixture(name=float_frame_fill2_dense)
+@pytest.fixture(name="float_frame_fill2_dense")
 def float_frame_fill2_dense_fixture():
     return float_frame_fill2_dense()
 
@@ -126,7 +126,7 @@ def float_frame_fill2_dense():
     return DataFrame(values, columns=["A", "B", "C", "D"], index=dates)
 
 
-@pytest.fixture(name=float_frame_fill2)
+@pytest.fixture(name="float_frame_fill2")
 def float_frame_fill2_fixture():
     return float_frame_fill2()
 
@@ -144,7 +144,7 @@ def float_frame_fill2():
     )
 
 
-@pytest.fixture(name=empty_frame)
+@pytest.fixture(name="empty_frame")
 def empty_frame_fixture():
     return empty_frame()
 

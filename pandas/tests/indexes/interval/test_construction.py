@@ -24,7 +24,7 @@ import pandas.core.common as com
 import pandas.util.testing as tm
 
 
-@pytest.fixture(params=[None, "foo"], name=name)
+@pytest.fixture(params=[None, "foo"], name="name")
 def name_fixture(request):
     return name(request)
 
@@ -189,10 +189,9 @@ class Base:
 class TestFromArrays(Base):
     """Tests specific to IntervalIndex.from_arrays"""
 
-    @pytest.fixture(name=constructor)
+    @pytest.fixture(name="constructor")
     def constructor_fixture(self):
-        return constructor(self)
-
+        return self.constructor()
 
     def constructor(self):
         return IntervalIndex.from_arrays

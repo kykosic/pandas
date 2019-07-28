@@ -34,7 +34,7 @@ all_ts = pytest.mark.parametrize(
 )
 
 
-@pytest.fixture(name=create_index)
+@pytest.fixture(name="create_index")
 def create_index_fixture(_index_factory):
     return create_index(_index_factory)
 

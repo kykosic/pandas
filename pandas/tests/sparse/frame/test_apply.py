@@ -7,7 +7,7 @@ from pandas.core.sparse.api import SparseDtype
 from pandas.util import testing as tm
 
 
-@pytest.fixture(name=dates)
+@pytest.fixture(name="dates")
 def dates_fixture():
     return dates()
 
@@ -16,7 +16,7 @@ def dates():
     return bdate_range("1/1/2011", periods=10)
 
 
-@pytest.fixture(name=empty)
+@pytest.fixture(name="empty")
 def empty_fixture():
     return empty()
 
@@ -25,7 +25,7 @@ def empty():
     return SparseDataFrame()
 
 
-@pytest.fixture(name=frame)
+@pytest.fixture(name="frame")
 def frame_fixture(dates):
     return frame(dates)
 
@@ -41,7 +41,7 @@ def frame(dates):
     return SparseDataFrame(data, index=dates)
 
 
-@pytest.fixture(name=fill_frame)
+@pytest.fixture(name="fill_frame")
 def fill_frame_fixture(frame):
     return fill_frame(frame)
 

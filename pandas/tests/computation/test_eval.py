@@ -58,7 +58,7 @@ def engine(request):
     return request.param
 
 
-@pytest.fixture(params=expr._parsers, name=parser)
+@pytest.fixture(params=expr._parsers, name="parser")
 def parser_fixture(request):
     return parser(request)
 
@@ -67,7 +67,7 @@ def parser(request):
     return request.param
 
 
-@pytest.fixture(name=ne_lt_2_6_9)
+@pytest.fixture(name="ne_lt_2_6_9")
 def ne_lt_2_6_9_fixture():
     return ne_lt_2_6_9()
 
@@ -78,7 +78,7 @@ def ne_lt_2_6_9():
     return "numexpr"
 
 
-@pytest.fixture(name=unary_fns_for_ne)
+@pytest.fixture(name="unary_fns_for_ne")
 def unary_fns_for_ne_fixture():
     return unary_fns_for_ne()
 

@@ -5,7 +5,7 @@ from pandas import DataFrame, Index, period_range
 import pandas.util.testing as tm
 
 
-@pytest.fixture(name=frame_with_period_index)
+@pytest.fixture(name="frame_with_period_index")
 def frame_with_period_index_fixture():
     return frame_with_period_index()
 
@@ -18,7 +18,7 @@ def frame_with_period_index():
     )
 
 
-@pytest.fixture(name=left)
+@pytest.fixture(name="left")
 def left_fixture():
     return left()
 
@@ -27,7 +27,7 @@ def left():
     return DataFrame({"a": [20, 10, 0]}, index=[2, 1, 0])
 
 
-@pytest.fixture(name=right)
+@pytest.fixture(name="right")
 def right_fixture():
     return right()
 

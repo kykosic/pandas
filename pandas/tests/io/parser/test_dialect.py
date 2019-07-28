@@ -14,7 +14,7 @@ from pandas import DataFrame
 import pandas.util.testing as tm
 
 
-@pytest.fixture(name=custom_dialect)
+@pytest.fixture(name="custom_dialect")
 def custom_dialect_fixture():
     return custom_dialect()
 

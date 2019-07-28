@@ -284,7 +284,7 @@ def test_array_unboxes(box):
     tm.assert_equal(result, expected)
 
 
-@pytest.fixture(name=registry_without_decimal)
+@pytest.fixture(name="registry_without_decimal")
 def registry_without_decimal_fixture():
     return registry_without_decimal()
 

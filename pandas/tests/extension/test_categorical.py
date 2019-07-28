@@ -36,7 +36,7 @@ def make_data():
     return values
 
 
-@pytest.fixture(name=dtype)
+@pytest.fixture(name="dtype")
 def dtype_fixture():
     return dtype()
 
@@ -45,7 +45,7 @@ def dtype():
     return CategoricalDtype()
 
 
-@pytest.fixture(name=data)
+@pytest.fixture(name="data")
 def data_fixture():
     return data()
 
@@ -59,7 +59,7 @@ def data():
     return Categorical(make_data())
 
 
-@pytest.fixture(name=data_missing)
+@pytest.fixture(name="data_missing")
 def data_missing_fixture():
     return data_missing()
 
@@ -69,7 +69,7 @@ def data_missing():
     return Categorical([np.nan, "A"])
 
 
-@pytest.fixture(name=data_for_sorting)
+@pytest.fixture(name="data_for_sorting")
 def data_for_sorting_fixture():
     return data_for_sorting()
 
@@ -78,7 +78,7 @@ def data_for_sorting():
     return Categorical(["A", "B", "C"], categories=["C", "A", "B"], ordered=True)
 
 
-@pytest.fixture(name=data_missing_for_sorting)
+@pytest.fixture(name="data_missing_for_sorting")
 def data_missing_for_sorting_fixture():
     return data_missing_for_sorting()
 
@@ -87,7 +87,7 @@ def data_missing_for_sorting():
     return Categorical(["A", None, "B"], categories=["B", "A"], ordered=True)
 
 
-@pytest.fixture(name=na_value)
+@pytest.fixture(name="na_value")
 def na_value_fixture():
     return na_value()
 
@@ -96,7 +96,7 @@ def na_value():
     return np.nan
 
 
-@pytest.fixture(name=data_for_grouping)
+@pytest.fixture(name="data_for_grouping")
 def data_for_grouping_fixture():
     return data_for_grouping()
 

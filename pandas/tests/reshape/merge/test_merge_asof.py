@@ -19,10 +19,9 @@ class TestAsOfMerge:
         x.time = to_datetime(x.time)
         return x
 
-    @pytest.fixture(autouse=True, name=setup_method)
+    @pytest.fixture(autouse=True, name="setup_method")
     def setup_method_fixture(self, datapath):
-        return setup_method(self, datapath)
-
+        return self.setup_method(datapath)
 
     def setup_method(self, datapath):
 
