@@ -47,7 +47,11 @@ def orient(request):
     return request.param
 
 
-@pytest.fixture(params=[None, True])
+@pytest.fixture(params=[None, True], name=numpy)
+def numpy_fixture(request):
+    return numpy(request)
+
+
 def numpy(request):
     return request.param
 

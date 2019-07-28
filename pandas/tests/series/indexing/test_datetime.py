@@ -438,7 +438,11 @@ test duplicates in time series
 """
 
 
-@pytest.fixture
+@pytest.fixture(name=dups)
+def dups_fixture():
+    return dups()
+
+
 def dups():
     dates = [
         datetime(2000, 1, 2),

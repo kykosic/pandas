@@ -15,15 +15,27 @@ from pandas.util.testing import assert_frame_equal
 
 @pytest.mark.filterwarnings("ignore:Sparse:FutureWarning")
 class TestGetDummies:
-    @pytest.fixture
+@pytest.fixture(name=df)
+    def df_fixture(self):
+        return df(self)
+
+
     def df(self):
         return DataFrame({"A": ["a", "b", "a"], "B": ["b", "b", "c"], "C": [1, 2, 3]})
 
-    @pytest.fixture(params=["uint8", "i8", np.float64, bool, None])
+    @pytest.fixture(params=["uint8", "i8", np.float64, bool, None], name=dtype)
+    def dtype_fixture(self, request):
+        return dtype(self, request)
+
+
     def dtype(self, request):
         return np.dtype(request.param)
 
-    @pytest.fixture(params=["dense", "sparse"])
+    @pytest.fixture(params=["dense", "sparse"], name=sparse)
+    def sparse_fixture(self, request):
+        return sparse(self, request)
+
+
     def sparse(self, request):
         # params are strings to simplify reading test results,
         # e.g. TestGetDummies::test_basic[uint8-sparse] instead of [uint8-True]

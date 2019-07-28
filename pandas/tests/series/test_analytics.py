@@ -1224,7 +1224,11 @@ main_dtypes = [
 ]
 
 
-@pytest.fixture
+@pytest.fixture(name=s_main_dtypes)
+def s_main_dtypes_fixture():
+    return s_main_dtypes()
+
+
 def s_main_dtypes():
     """A DataFrame with many dtypes
 
@@ -1263,7 +1267,11 @@ def s_main_dtypes():
     return df
 
 
-@pytest.fixture(params=main_dtypes)
+@pytest.fixture(params=main_dtypes, name=s_main_dtypes_split)
+def s_main_dtypes_split_fixture(request, s_main_dtypes):
+    return s_main_dtypes_split(request, s_main_dtypes)
+
+
 def s_main_dtypes_split(request, s_main_dtypes):
     """Each series in s_main_dtypes."""
     return s_main_dtypes[request.param]

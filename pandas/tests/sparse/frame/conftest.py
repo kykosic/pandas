@@ -16,7 +16,11 @@ dates = bdate_range("1/1/2011", periods=10)
 # tests/frame/test_api.SharedWithSparse
 
 
-@pytest.fixture
+@pytest.fixture(name=float_frame_dense)
+def float_frame_dense_fixture():
+    return float_frame_dense()
+
+
 def float_frame_dense():
     """
     Fixture for dense DataFrame of floats with DatetimeIndex
@@ -26,7 +30,11 @@ def float_frame_dense():
     return DataFrame(data, index=dates)
 
 
-@pytest.fixture
+@pytest.fixture(name=float_frame)
+def float_frame_fixture():
+    return float_frame()
+
+
 def float_frame():
     """
     Fixture for sparse DataFrame of floats with DatetimeIndex
@@ -37,7 +45,11 @@ def float_frame():
     return SparseDataFrame(data, index=dates, default_kind="block")
 
 
-@pytest.fixture
+@pytest.fixture(name=float_frame_int_kind)
+def float_frame_int_kind_fixture():
+    return float_frame_int_kind()
+
+
 def float_frame_int_kind():
     """
     Fixture for sparse DataFrame of floats with DatetimeIndex
@@ -48,7 +60,11 @@ def float_frame_int_kind():
     return SparseDataFrame(data, index=dates, default_kind="integer")
 
 
-@pytest.fixture
+@pytest.fixture(name=float_string_frame)
+def float_string_frame_fixture():
+    return float_string_frame()
+
+
 def float_string_frame():
     """
     Fixture for sparse DataFrame of floats and strings with DatetimeIndex
@@ -60,7 +76,11 @@ def float_string_frame():
     return sdf
 
 
-@pytest.fixture
+@pytest.fixture(name=float_frame_fill0_dense)
+def float_frame_fill0_dense_fixture():
+    return float_frame_fill0_dense()
+
+
 def float_frame_fill0_dense():
     """
     Fixture for dense DataFrame of floats with DatetimeIndex
@@ -72,7 +92,11 @@ def float_frame_fill0_dense():
     return DataFrame(values, columns=["A", "B", "C", "D"], index=dates)
 
 
-@pytest.fixture
+@pytest.fixture(name=float_frame_fill0)
+def float_frame_fill0_fixture():
+    return float_frame_fill0()
+
+
 def float_frame_fill0():
     """
     Fixture for sparse DataFrame of floats with DatetimeIndex
@@ -86,7 +110,11 @@ def float_frame_fill0():
     )
 
 
-@pytest.fixture
+@pytest.fixture(name=float_frame_fill2_dense)
+def float_frame_fill2_dense_fixture():
+    return float_frame_fill2_dense()
+
+
 def float_frame_fill2_dense():
     """
     Fixture for dense DataFrame of floats with DatetimeIndex
@@ -98,7 +126,11 @@ def float_frame_fill2_dense():
     return DataFrame(values, columns=["A", "B", "C", "D"], index=dates)
 
 
-@pytest.fixture
+@pytest.fixture(name=float_frame_fill2)
+def float_frame_fill2_fixture():
+    return float_frame_fill2()
+
+
 def float_frame_fill2():
     """
     Fixture for sparse DataFrame of floats with DatetimeIndex
@@ -112,7 +144,11 @@ def float_frame_fill2():
     )
 
 
-@pytest.fixture
+@pytest.fixture(name=empty_frame)
+def empty_frame_fixture():
+    return empty_frame()
+
+
 def empty_frame():
     """
     Fixture for empty SparseDataFrame

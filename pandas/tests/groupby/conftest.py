@@ -6,7 +6,11 @@ from pandas.core.groupby.base import reduction_kernels
 from pandas.util import testing as tm
 
 
-@pytest.fixture
+@pytest.fixture(name=mframe)
+def mframe_fixture():
+    return mframe()
+
+
 def mframe():
     index = MultiIndex(
         levels=[["foo", "bar", "baz", "qux"], ["one", "two", "three"]],
@@ -16,7 +20,11 @@ def mframe():
     return DataFrame(np.random.randn(10, 3), index=index, columns=["A", "B", "C"])
 
 
-@pytest.fixture
+@pytest.fixture(name=df)
+def df_fixture():
+    return df()
+
+
 def df():
     return DataFrame(
         {
@@ -28,22 +36,38 @@ def df():
     )
 
 
-@pytest.fixture
+@pytest.fixture(name=ts)
+def ts_fixture():
+    return ts()
+
+
 def ts():
     return tm.makeTimeSeries()
 
 
-@pytest.fixture
+@pytest.fixture(name=tsd)
+def tsd_fixture():
+    return tsd()
+
+
 def tsd():
     return tm.getTimeSeriesData()
 
 
-@pytest.fixture
+@pytest.fixture(name=tsframe)
+def tsframe_fixture(tsd):
+    return tsframe(tsd)
+
+
 def tsframe(tsd):
     return DataFrame(tsd)
 
 
-@pytest.fixture
+@pytest.fixture(name=df_mixed_floats)
+def df_mixed_floats_fixture():
+    return df_mixed_floats()
+
+
 def df_mixed_floats():
     return DataFrame(
         {
@@ -55,7 +79,11 @@ def df_mixed_floats():
     )
 
 
-@pytest.fixture
+@pytest.fixture(name=three_group)
+def three_group_fixture():
+    return three_group()
+
+
 def three_group():
     return DataFrame(
         {
@@ -105,7 +133,11 @@ def three_group():
     )
 
 
-@pytest.fixture(params=sorted(reduction_kernels))
+@pytest.fixture(params=sorted(reduction_kernels), name=reduction_func)
+def reduction_func_fixture(request):
+    return reduction_func(request)
+
+
 def reduction_func(request):
     """yields the string names of all groupby reduction functions, one at a time.
     """

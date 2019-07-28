@@ -80,7 +80,11 @@ class TestIntSubtype(Base):
         IntervalIndex.from_breaks(np.arange(100, dtype="uint64"), closed="left"),
     ]
 
-    @pytest.fixture(params=indexes)
+    @pytest.fixture(params=indexes, name=index)
+    def index_fixture(self, request):
+        return index(self, request)
+
+
     def index(self, request):
         return request.param
 

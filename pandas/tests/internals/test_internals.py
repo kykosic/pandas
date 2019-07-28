@@ -36,7 +36,11 @@ from pandas.util.testing import (
 PY361 = LooseVersion(sys.version) >= LooseVersion("3.6.1")
 
 
-@pytest.fixture
+@pytest.fixture(name=mgr)
+def mgr_fixture():
+    return mgr()
+
+
 def mgr():
     return create_mgr(
         "a: f8; b: object; c: f8; d: object; e: f8;"

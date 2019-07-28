@@ -9,27 +9,47 @@ from pandas import DataFrame, Index, Series, to_numeric
 from pandas.util import testing as tm
 
 
-@pytest.fixture(params=[None, "ignore", "raise", "coerce"])
+@pytest.fixture(params=[None, "ignore", "raise", "coerce"], name=errors)
+def errors_fixture(request):
+    return errors(request)
+
+
 def errors(request):
     return request.param
 
 
-@pytest.fixture(params=[True, False])
+@pytest.fixture(params=[True, False], name=signed)
+def signed_fixture(request):
+    return signed(request)
+
+
 def signed(request):
     return request.param
 
 
-@pytest.fixture(params=[lambda x: x, str], ids=["identity", "str"])
+@pytest.fixture(params=[lambda x: x, str], ids=["identity", "str"], name=transform)
+def transform_fixture(request):
+    return transform(request)
+
+
 def transform(request):
     return request.param
 
 
-@pytest.fixture(params=[47393996303418497800, 100000000000000000000])
+@pytest.fixture(params=[47393996303418497800, 100000000000000000000], name=large_val)
+def large_val_fixture(request):
+    return large_val(request)
+
+
 def large_val(request):
     return request.param
 
 
-@pytest.fixture(params=[True, False])
+@pytest.fixture(params=[True, False], name=multiple_elts)
+def multiple_elts_fixture(request):
+    return multiple_elts(request)
+
+
 def multiple_elts(request):
     return request.param
 

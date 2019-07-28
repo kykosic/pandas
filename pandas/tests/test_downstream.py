@@ -33,7 +33,11 @@ def import_module(name):
             raise
 
 
-@pytest.fixture
+@pytest.fixture(name=df)
+def df_fixture():
+    return df()
+
+
 def df():
     return DataFrame({"A": [1, 2, 3]})
 

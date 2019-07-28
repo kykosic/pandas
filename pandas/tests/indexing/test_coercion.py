@@ -13,7 +13,11 @@ import pandas.util.testing as tm
 ###############################################################
 
 
-@pytest.fixture(autouse=True, scope="class")
+@pytest.fixture(autouse=True, scope="class", name=check_comprehensiveness)
+def check_comprehensiveness_fixture(request):
+    return check_comprehensiveness(request)
+
+
 def check_comprehensiveness(request):
     # Iterate over combination of dtype, method and klass
     # and ensure that each are contained within a collected test
