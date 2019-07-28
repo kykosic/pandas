@@ -5,20 +5,12 @@ from pandas import Index, IntervalIndex, Timestamp, interval_range
 import pandas.util.testing as tm
 
 
-@pytest.fixture(scope="class", params=[None, "foo"], name="name")
-def name_fixture(request):
-    return name(request)
-
-
+@pytest.fixture(scope="class", params=[None, "foo"])
 def name(request):
     return request.param
 
 
-@pytest.fixture(params=[None, False], name="sort")
-def sort_fixture(request):
-    return sort(request)
-
-
+@pytest.fixture(params=[None, False])
 def sort(request):
     return request.param
 

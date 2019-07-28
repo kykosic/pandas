@@ -74,38 +74,22 @@ def base_delta_code_pair(request):
     return request.param
 
 
-@pytest.fixture(params=[1, 2, 3, 4], name="count")
-def count_fixture(request):
-    return count(request)
-
-
+@pytest.fixture(params=[1, 2, 3, 4])
 def count(request):
     return request.param
 
 
-@pytest.fixture(params=DAYS, name="day")
-def day_fixture(request):
-    return day(request)
-
-
+@pytest.fixture(params=DAYS)
 def day(request):
     return request.param
 
 
-@pytest.fixture(params=MONTHS, name="month")
-def month_fixture(request):
-    return month(request)
-
-
+@pytest.fixture(params=MONTHS)
 def month(request):
     return request.param
 
 
-@pytest.fixture(params=[5, 7], name="periods")
-def periods_fixture(request):
-    return periods(request)
-
-
+@pytest.fixture(params=[5, 7])
 def periods(request):
     return request.param
 

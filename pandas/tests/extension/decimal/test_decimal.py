@@ -12,87 +12,51 @@ import pandas.util.testing as tm
 from .array import DecimalArray, DecimalDtype, make_data, to_decimal
 
 
-@pytest.fixture(name="dtype")
-def dtype_fixture():
-    return dtype()
-
-
+@pytest.fixture
 def dtype():
     return DecimalDtype()
 
 
-@pytest.fixture(name="data")
-def data_fixture():
-    return data()
-
-
+@pytest.fixture
 def data():
     return DecimalArray(make_data())
 
 
-@pytest.fixture(name="data_for_twos")
-def data_for_twos_fixture():
-    return data_for_twos()
-
-
+@pytest.fixture
 def data_for_twos():
     return DecimalArray([decimal.Decimal(2) for _ in range(100)])
 
 
-@pytest.fixture(name="data_missing")
-def data_missing_fixture():
-    return data_missing()
-
-
+@pytest.fixture
 def data_missing():
     return DecimalArray([decimal.Decimal("NaN"), decimal.Decimal(1)])
 
 
-@pytest.fixture(name="data_for_sorting")
-def data_for_sorting_fixture():
-    return data_for_sorting()
-
-
+@pytest.fixture
 def data_for_sorting():
     return DecimalArray(
         [decimal.Decimal("1"), decimal.Decimal("2"), decimal.Decimal("0")]
     )
 
 
-@pytest.fixture(name="data_missing_for_sorting")
-def data_missing_for_sorting_fixture():
-    return data_missing_for_sorting()
-
-
+@pytest.fixture
 def data_missing_for_sorting():
     return DecimalArray(
         [decimal.Decimal("1"), decimal.Decimal("NaN"), decimal.Decimal("0")]
     )
 
 
-@pytest.fixture(name="na_cmp")
-def na_cmp_fixture():
-    return na_cmp()
-
-
+@pytest.fixture
 def na_cmp():
     return lambda x, y: x.is_nan() and y.is_nan()
 
 
-@pytest.fixture(name="na_value")
-def na_value_fixture():
-    return na_value()
-
-
+@pytest.fixture
 def na_value():
     return decimal.Decimal("NaN")
 
 
-@pytest.fixture(name="data_for_grouping")
-def data_for_grouping_fixture():
-    return data_for_grouping()
-
-
+@pytest.fixture
 def data_for_grouping():
     b = decimal.Decimal("1.0")
     a = decimal.Decimal("0.0")

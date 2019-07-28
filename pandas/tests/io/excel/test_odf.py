@@ -9,11 +9,7 @@ import pandas.util.testing as tm
 pytest.importorskip("odf")
 
 
-@pytest.fixture(autouse=True, name="cd_and_set_engine")
-def cd_and_set_engine_fixture(monkeypatch, datapath):
-    return cd_and_set_engine(monkeypatch, datapath)
-
-
+@pytest.fixture(autouse=True)
 def cd_and_set_engine(monkeypatch, datapath):
     func = functools.partial(pd.read_excel, engine="odf")
     monkeypatch.setattr(pd, "read_excel", func)

@@ -5,11 +5,7 @@ from pandas import DataFrame, NaT, date_range
 import pandas.util.testing as tm
 
 
-@pytest.fixture(name="float_frame_with_na")
-def float_frame_with_na_fixture():
-    return float_frame_with_na()
-
-
+@pytest.fixture
 def float_frame_with_na():
     """
     Fixture for DataFrame of floats with index of unique strings
@@ -42,11 +38,7 @@ def float_frame_with_na():
     return df
 
 
-@pytest.fixture(name="bool_frame_with_na")
-def bool_frame_with_na_fixture():
-    return bool_frame_with_na()
-
-
+@pytest.fixture
 def bool_frame_with_na():
     """
     Fixture for DataFrame of booleans with index of unique strings
@@ -80,11 +72,7 @@ def bool_frame_with_na():
     return df
 
 
-@pytest.fixture(name="int_frame")
-def int_frame_fixture():
-    return int_frame()
-
-
+@pytest.fixture
 def int_frame():
     """
     Fixture for DataFrame of ints with index of unique strings
@@ -115,11 +103,7 @@ def int_frame():
     return DataFrame({c: s for c, s in df.items()}, dtype=np.int64)
 
 
-@pytest.fixture(name="datetime_frame")
-def datetime_frame_fixture():
-    return datetime_frame()
-
-
+@pytest.fixture
 def datetime_frame():
     """
     Fixture for DataFrame of floats with DatetimeIndex
@@ -148,11 +132,7 @@ def datetime_frame():
     return DataFrame(tm.getTimeSeriesData())
 
 
-@pytest.fixture(name="float_string_frame")
-def float_string_frame_fixture():
-    return float_string_frame()
-
-
+@pytest.fixture
 def float_string_frame():
     """
     Fixture for DataFrame of floats and strings with index of unique strings
@@ -183,11 +163,7 @@ def float_string_frame():
     return df
 
 
-@pytest.fixture(name="mixed_float_frame")
-def mixed_float_frame_fixture():
-    return mixed_float_frame()
-
-
+@pytest.fixture
 def mixed_float_frame():
     """
     Fixture for DataFrame of different float types with index of unique strings
@@ -221,11 +197,7 @@ def mixed_float_frame():
     return df
 
 
-@pytest.fixture(name="mixed_int_frame")
-def mixed_int_frame_fixture():
-    return mixed_int_frame()
-
-
+@pytest.fixture
 def mixed_int_frame():
     """
     Fixture for DataFrame of different int types with index of unique strings
@@ -259,11 +231,7 @@ def mixed_int_frame():
     return df
 
 
-@pytest.fixture(name="mixed_type_frame")
-def mixed_type_frame_fixture():
-    return mixed_type_frame()
-
-
+@pytest.fixture
 def mixed_type_frame():
     """
     Fixture for DataFrame of float/int/string columns with RangeIndex
@@ -281,11 +249,7 @@ def mixed_type_frame():
     )
 
 
-@pytest.fixture(name="timezone_frame")
-def timezone_frame_fixture():
-    return timezone_frame()
-
-
+@pytest.fixture
 def timezone_frame():
     """
     Fixture for DataFrame of date_range Series with different time zones
@@ -309,11 +273,7 @@ def timezone_frame():
     return df
 
 
-@pytest.fixture(name="uint64_frame")
-def uint64_frame_fixture():
-    return uint64_frame()
-
-
+@pytest.fixture
 def uint64_frame():
     """
     Fixture for DataFrame with uint64 values
@@ -325,11 +285,7 @@ def uint64_frame():
     )
 
 
-@pytest.fixture(name="simple_frame")
-def simple_frame_fixture():
-    return simple_frame()
-
-
+@pytest.fixture
 def simple_frame():
     """
     Fixture for simple 3x3 DataFrame
@@ -346,11 +302,7 @@ def simple_frame():
     return DataFrame(arr, columns=["one", "two", "three"], index=["a", "b", "c"])
 
 
-@pytest.fixture(name="frame_of_index_cols")
-def frame_of_index_cols_fixture():
-    return frame_of_index_cols()
-
-
+@pytest.fixture
 def frame_of_index_cols():
     """
     Fixture for DataFrame of columns that can be used for indexing

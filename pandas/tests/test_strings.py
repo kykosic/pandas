@@ -106,11 +106,7 @@ missing_methods = {
 assert not missing_methods
 
 
-@pytest.fixture(params=_any_string_method, ids=ids, name="any_string_method")
-def any_string_method_fixture(request):
-    return any_string_method(request)
-
-
+@pytest.fixture(params=_any_string_method, ids=ids)
 def any_string_method(request):
     """
     Fixture for all public methods of `StringMethods`
@@ -151,11 +147,7 @@ _any_allowed_skipna_inferred_dtype = [
 ids, _ = zip(*_any_allowed_skipna_inferred_dtype)  # use inferred type as id
 
 
-@pytest.fixture(params=_any_allowed_skipna_inferred_dtype, ids=ids, name="any_allowed_skipna_inferred_dtype")
-def any_allowed_skipna_inferred_dtype_fixture(request):
-    return any_allowed_skipna_inferred_dtype(request)
-
-
+@pytest.fixture(params=_any_allowed_skipna_inferred_dtype, ids=ids)
 def any_allowed_skipna_inferred_dtype(request):
     """
     Fixture for all (inferred) dtypes allowed in StringMethods.__init__

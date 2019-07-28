@@ -9,21 +9,13 @@ from pandas.core.sparse.api import SparseDtype
 import pandas.util.testing as tm
 
 
-@pytest.fixture(params=["integer", "block"], name="kind")
-def kind_fixture(request):
-    return kind(request)
-
-
+@pytest.fixture(params=["integer", "block"])
 def kind(request):
     """kind kwarg to pass to SparseArray/SparseSeries"""
     return request.param
 
 
-@pytest.fixture(params=[True, False], name="mix")
-def mix_fixture(request):
-    return mix(request)
-
-
+@pytest.fixture(params=[True, False])
 def mix(request):
     # whether to operate op(sparse, dense) instead of op(sparse, sparse)
     return request.param

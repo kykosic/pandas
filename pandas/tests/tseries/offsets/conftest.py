@@ -3,11 +3,7 @@ import pytest
 import pandas.tseries.offsets as offsets
 
 
-@pytest.fixture(params=[getattr(offsets, o) for o in offsets.__all__], name="offset_types")
-def offset_types_fixture(request):
-    return offset_types(request)
-
-
+@pytest.fixture(params=[getattr(offsets, o) for o in offsets.__all__])
 def offset_types(request):
     """
     Fixture for all the datetime offsets available for a time series.

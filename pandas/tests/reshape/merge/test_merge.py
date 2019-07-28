@@ -68,11 +68,7 @@ def get_series_na():
     ]
 
 
-@pytest.fixture(params=get_series(), ids=lambda x: x.dtype.name, name="series_of_dtype")
-def series_of_dtype_fixture(request):
-    return series_of_dtype(request)
-
-
+@pytest.fixture(params=get_series(), ids=lambda x: x.dtype.name)
 def series_of_dtype(request):
     """
     A parametrized fixture returning a variety of Series of different
@@ -81,11 +77,7 @@ def series_of_dtype(request):
     return request.param
 
 
-@pytest.fixture(params=get_series(), ids=lambda x: x.dtype.name, name="series_of_dtype2")
-def series_of_dtype2_fixture(request):
-    return series_of_dtype2(request)
-
-
+@pytest.fixture(params=get_series(), ids=lambda x: x.dtype.name)
 def series_of_dtype2(request):
     """
     A duplicate of the series_of_dtype fixture, so that it can be used
@@ -94,11 +86,7 @@ def series_of_dtype2(request):
     return request.param
 
 
-@pytest.fixture(params=get_series_na(), ids=lambda x: x.dtype.name, name="series_of_dtype_all_na")
-def series_of_dtype_all_na_fixture(request):
-    return series_of_dtype_all_na(request)
-
-
+@pytest.fixture(params=get_series_na(), ids=lambda x: x.dtype.name)
 def series_of_dtype_all_na(request):
     """
     A parametrized fixture returning a variety of Series with all NA
@@ -1566,11 +1554,7 @@ class TestMergeDtypes:
             pd.merge(df2, df1, on=["A"])
 
 
-@pytest.fixture(name="left")
-def left_fixture():
-    return left()
-
-
+@pytest.fixture
 def left():
     np.random.seed(1234)
     return DataFrame(
@@ -1583,11 +1567,7 @@ def left():
     )
 
 
-@pytest.fixture(name="right")
-def right_fixture():
-    return right()
-
-
+@pytest.fixture
 def right():
     np.random.seed(1234)
     return DataFrame(
@@ -1831,20 +1811,12 @@ class TestMergeCategorical:
         assert_frame_equal(result, expected)
 
 
-@pytest.fixture(name="left_df")
-def left_df_fixture():
-    return left_df()
-
-
+@pytest.fixture
 def left_df():
     return DataFrame({"a": [20, 10, 0]}, index=[2, 1, 0])
 
 
-@pytest.fixture(name="right_df")
-def right_df_fixture():
-    return right_df()
-
-
+@pytest.fixture
 def right_df():
     return DataFrame({"b": [300, 100, 200]}, index=[3, 1, 2])
 

@@ -28,11 +28,7 @@ from pandas.util.testing import (
 import pandas.tseries.offsets as offsets
 
 
-@pytest.fixture(params=product([True, False], [True, False]), name="close_open_fixture")
-def close_open_fixture_fixture(request):
-    return close_open_fixture(request)
-
-
+@pytest.fixture(params=product([True, False], [True, False]))
 def close_open_fixture(request):
     return request.param
 

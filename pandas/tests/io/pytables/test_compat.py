@@ -7,11 +7,7 @@ from pandas.util.testing import assert_frame_equal
 tables = pytest.importorskip("tables")
 
 
-@pytest.fixture(name="pytables_hdf5_file")
-def pytables_hdf5_file_fixture():
-    return pytables_hdf5_file()
-
-
+@pytest.fixture
 def pytables_hdf5_file():
     """Use PyTables to create a simple HDF5 file."""
 

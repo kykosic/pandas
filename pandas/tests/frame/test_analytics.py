@@ -2527,11 +2527,7 @@ class TestDataFrameAnalytics:
             operator.matmul(df, df2)
 
 
-@pytest.fixture(name="df_duplicates")
-def df_duplicates_fixture():
-    return df_duplicates()
-
-
+@pytest.fixture
 def df_duplicates():
     return pd.DataFrame(
         {"a": [1, 2, 3, 4, 4], "b": [1, 1, 1, 1, 1], "c": [0, 1, 2, 5, 4]},
@@ -2539,11 +2535,7 @@ def df_duplicates():
     )
 
 
-@pytest.fixture(name="df_strings")
-def df_strings_fixture():
-    return df_strings()
-
-
+@pytest.fixture
 def df_strings():
     return pd.DataFrame(
         {
@@ -2554,11 +2546,7 @@ def df_strings():
     )
 
 
-@pytest.fixture(name="df_main_dtypes")
-def df_main_dtypes_fixture():
-    return df_main_dtypes()
-
-
+@pytest.fixture
 def df_main_dtypes():
     return pd.DataFrame(
         {

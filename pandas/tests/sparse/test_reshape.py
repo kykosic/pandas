@@ -5,20 +5,12 @@ import pandas as pd
 import pandas.util.testing as tm
 
 
-@pytest.fixture(name="sparse_df")
-def sparse_df_fixture():
-    return sparse_df()
-
-
+@pytest.fixture
 def sparse_df():
     return pd.SparseDataFrame({0: {0: 1}, 1: {1: 1}, 2: {2: 1}})  # eye
 
 
-@pytest.fixture(name="multi_index3")
-def multi_index3_fixture():
-    return multi_index3()
-
-
+@pytest.fixture
 def multi_index3():
     return pd.MultiIndex.from_tuples([(0, 0), (1, 1), (2, 2)])
 

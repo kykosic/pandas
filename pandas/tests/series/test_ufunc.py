@@ -14,11 +14,7 @@ SPARSE_IDS = ["sparse", "dense"]
 SHUFFLE = [True, False]
 
 
-@pytest.fixture(name="arrays_for_binary_ufunc")
-def arrays_for_binary_ufunc_fixture():
-    return arrays_for_binary_ufunc()
-
-
+@pytest.fixture
 def arrays_for_binary_ufunc():
     """
     A pair of random, length-100 integer-dtype arrays, that are mostly 0.

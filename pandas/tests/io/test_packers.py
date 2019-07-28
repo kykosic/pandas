@@ -53,11 +53,7 @@ else:
     _ZLIB_INSTALLED = True
 
 
-@pytest.fixture(scope="module", name="current_packers_data")
-def current_packers_data_fixture():
-    return current_packers_data()
-
-
+@pytest.fixture(scope="module")
 def current_packers_data():
     # our current version packers data
     from pandas.tests.io.generate_legacy_storage_files import create_msgpack_data
@@ -65,11 +61,7 @@ def current_packers_data():
     return create_msgpack_data()
 
 
-@pytest.fixture(scope="module", name="all_packers_data")
-def all_packers_data_fixture():
-    return all_packers_data()
-
-
+@pytest.fixture(scope="module")
 def all_packers_data():
     # our all of our current version packers data
     from pandas.tests.io.generate_legacy_storage_files import create_data
@@ -881,11 +873,7 @@ files = glob.glob(
 )
 
 
-@pytest.fixture(params=files, name="legacy_packer")
-def legacy_packer_fixture(request, datapath):
-    return legacy_packer(request, datapath)
-
-
+@pytest.fixture(params=files)
 def legacy_packer(request, datapath):
     return datapath(request.param)
 

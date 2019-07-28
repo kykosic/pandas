@@ -10,11 +10,7 @@ import pandas.core.algorithms as algos
 import pandas.util.testing as tm
 
 
-@pytest.fixture(params=[True, False], name="writeable")
-def writeable_fixture(request):
-    return writeable(request)
-
-
+@pytest.fixture(params=[True, False])
 def writeable(request):
     return request.param
 

@@ -21,20 +21,12 @@ from pandas.core.reshape.pivot import crosstab, pivot_table
 import pandas.util.testing as tm
 
 
-@pytest.fixture(params=[True, False], name="dropna")
-def dropna_fixture(request):
-    return dropna(request)
-
-
+@pytest.fixture(params=[True, False])
 def dropna(request):
     return request.param
 
 
-@pytest.fixture(params=[([0] * 4, [1] * 4), (range(0, 3), range(1, 4))], name="interval_values")
-def interval_values_fixture(request, closed):
-    return interval_values(request, closed)
-
-
+@pytest.fixture(params=[([0] * 4, [1] * 4), (range(0, 3), range(1, 4))])
 def interval_values(request, closed):
     left, right = request.param
     return Categorical(pd.IntervalIndex.from_arrays(left, right, closed))

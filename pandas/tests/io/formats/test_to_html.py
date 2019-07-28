@@ -44,11 +44,7 @@ def expected_html(datapath, name):
     return html.rstrip()
 
 
-@pytest.fixture(params=["mixed", "empty"], name="biggie_df_fixture")
-def biggie_df_fixture_fixture(request):
-    return biggie_df_fixture(request)
-
-
+@pytest.fixture(params=["mixed", "empty"])
 def biggie_df_fixture(request):
     """Fixture for a big mixed Dataframe and an empty Dataframe"""
     if request.param == "mixed":
@@ -64,11 +60,7 @@ def biggie_df_fixture(request):
         return df
 
 
-@pytest.fixture(params=fmt._VALID_JUSTIFY_PARAMETERS, name="justify")
-def justify_fixture(request):
-    return justify(request)
-
-
+@pytest.fixture(params=fmt._VALID_JUSTIFY_PARAMETERS)
 def justify(request):
     return request.param
 

@@ -33,21 +33,13 @@ from pandas.util import testing as tm
 from pandas.util.testing import assert_frame_equal, makeCustomDataframe as mkdf
 
 
-@pytest.fixture(params=[True, False], name="sort")
-def sort_fixture(request):
-    return sort(request)
-
-
+@pytest.fixture(params=[True, False])
 def sort(request):
     """Boolean sort keyword for concat and DataFrame.append."""
     return request.param
 
 
-@pytest.fixture(params=[True, False, None], name="sort_with_none")
-def sort_with_none_fixture(request):
-    return sort_with_none(request)
-
-
+@pytest.fixture(params=[True, False, None])
 def sort_with_none(request):
     """Boolean sort keyword for concat and DataFrame.append.
 

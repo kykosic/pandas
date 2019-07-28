@@ -12,20 +12,12 @@ from pandas.tests.frame.common import TestData
 from pandas.util.testing import assert_frame_equal, assert_series_equal
 
 
-@pytest.fixture(name="mix_ab")
-def mix_ab_fixture() -> Dict[str, list]:
-    return mix_ab()
-
-
+@pytest.fixture
 def mix_ab() -> Dict[str, list]:
     return {"a": list(range(4)), "b": list("ab..")}
 
 
-@pytest.fixture(name="mix_abc")
-def mix_abc_fixture() -> Dict[str, list]:
-    return mix_abc()
-
-
+@pytest.fixture
 def mix_abc() -> Dict[str, list]:
     return {"a": list(range(4)), "b": list("ab.."), "c": ["a", "b", np.nan, "d"]}
 

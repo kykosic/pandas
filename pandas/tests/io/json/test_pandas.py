@@ -40,10 +40,7 @@ _mixed_frame = _frame.copy()
 
 
 class TestPandasContainer:
-    @pytest.fixture(scope="function", autouse=True, name="setup")
-    def setup_fixture(self, datapath):
-        return self.setup(datapath)
-
+    @pytest.fixture(scope="function", autouse=True)
     def setup(self, datapath):
         self.dirpath = datapath("io", "json", "data")
 

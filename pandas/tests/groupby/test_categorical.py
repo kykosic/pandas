@@ -1052,11 +1052,7 @@ def test_shift(fill_value):
     assert_equal(res, expected)
 
 
-@pytest.fixture(name="df_cat")
-def df_cat_fixture(df):
-    return df_cat(df)
-
-
+@pytest.fixture
 def df_cat(df):
     """
     DataFrame with multiple categorical columns and a column of integers.

@@ -20,11 +20,7 @@ import pandas.util.testing as tm
 from pandas.tseries.offsets import Day
 
 
-@pytest.fixture(scope="class", params=[None, "foo"], name="name")
-def name_fixture(request):
-    return name(request)
-
-
+@pytest.fixture(scope="class", params=[None, "foo"])
 def name(request):
     return request.param
 

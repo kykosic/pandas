@@ -9,11 +9,7 @@ from pandas.core.indexing import IndexingError
 from pandas.util import testing as tm
 
 
-@pytest.fixture(name="single_level_multiindex")
-def single_level_multiindex_fixture():
-    return single_level_multiindex()
-
-
+@pytest.fixture
 def single_level_multiindex():
     """single level MultiIndex"""
     return MultiIndex(
@@ -21,11 +17,7 @@ def single_level_multiindex():
     )
 
 
-@pytest.fixture(name="frame_random_data_integer_multi_index")
-def frame_random_data_integer_multi_index_fixture():
-    return frame_random_data_integer_multi_index()
-
-
+@pytest.fixture
 def frame_random_data_integer_multi_index():
     levels = [[0, 1], [0, 1, 2]]
     codes = [[0, 0, 0, 1, 1, 1], [0, 1, 2, 0, 1, 2]]

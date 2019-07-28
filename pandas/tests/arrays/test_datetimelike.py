@@ -7,11 +7,7 @@ import pandas.util.testing as tm
 
 
 # TODO: more freq variants
-@pytest.fixture(params=["D", "B", "W", "M", "Q", "Y"], name="period_index")
-def period_index_fixture(request):
-    return period_index(request)
-
-
+@pytest.fixture(params=["D", "B", "W", "M", "Q", "Y"])
 def period_index(request):
     """
     A fixture to provide PeriodIndex objects with different frequencies.
@@ -26,11 +22,7 @@ def period_index(request):
     return pi
 
 
-@pytest.fixture(params=["D", "B", "W", "M", "Q", "Y"], name="datetime_index")
-def datetime_index_fixture(request):
-    return datetime_index(request)
-
-
+@pytest.fixture(params=["D", "B", "W", "M", "Q", "Y"])
 def datetime_index(request):
     """
     A fixture to provide DatetimeIndex objects with different frequencies.
@@ -45,11 +37,7 @@ def datetime_index(request):
     return pi
 
 
-@pytest.fixture(name="timedelta_index")
-def timedelta_index_fixture(request):
-    return timedelta_index(request)
-
-
+@pytest.fixture
 def timedelta_index(request):
     """
     A fixture to provide TimedeltaIndex objects with different frequencies.

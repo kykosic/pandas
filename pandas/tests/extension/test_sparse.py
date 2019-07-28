@@ -21,50 +21,30 @@ def make_data(fill_value):
     return data
 
 
-@pytest.fixture(name="dtype")
-def dtype_fixture():
-    return dtype()
-
-
+@pytest.fixture
 def dtype():
     return SparseDtype()
 
 
-@pytest.fixture(params=[0, np.nan], name="data")
-def data_fixture(request):
-    return data(request)
-
-
+@pytest.fixture(params=[0, np.nan])
 def data(request):
     """Length-100 PeriodArray for semantics test."""
     res = SparseArray(make_data(request.param), fill_value=request.param)
     return res
 
 
-@pytest.fixture(name="data_for_twos")
-def data_for_twos_fixture(request):
-    return data_for_twos(request)
-
-
+@pytest.fixture
 def data_for_twos(request):
     return SparseArray(np.ones(100) * 2)
 
 
-@pytest.fixture(params=[0, np.nan], name="data_missing")
-def data_missing_fixture(request):
-    return data_missing(request)
-
-
+@pytest.fixture(params=[0, np.nan])
 def data_missing(request):
     """Length 2 array with [NA, Valid]"""
     return SparseArray([np.nan, 1], fill_value=request.param)
 
 
-@pytest.fixture(params=[0, np.nan], name="data_repeated")
-def data_repeated_fixture(request):
-    return data_repeated(request)
-
-
+@pytest.fixture(params=[0, np.nan])
 def data_repeated(request):
     """Return different versions of data for count times"""
 
@@ -75,47 +55,27 @@ def data_repeated(request):
     yield gen
 
 
-@pytest.fixture(params=[0, np.nan], name="data_for_sorting")
-def data_for_sorting_fixture(request):
-    return data_for_sorting(request)
-
-
+@pytest.fixture(params=[0, np.nan])
 def data_for_sorting(request):
     return SparseArray([2, 3, 1], fill_value=request.param)
 
 
-@pytest.fixture(params=[0, np.nan], name="data_missing_for_sorting")
-def data_missing_for_sorting_fixture(request):
-    return data_missing_for_sorting(request)
-
-
+@pytest.fixture(params=[0, np.nan])
 def data_missing_for_sorting(request):
     return SparseArray([2, np.nan, 1], fill_value=request.param)
 
 
-@pytest.fixture(name="na_value")
-def na_value_fixture():
-    return na_value()
-
-
+@pytest.fixture
 def na_value():
     return np.nan
 
 
-@pytest.fixture(name="na_cmp")
-def na_cmp_fixture():
-    return na_cmp()
-
-
+@pytest.fixture
 def na_cmp():
     return lambda left, right: pd.isna(left) and pd.isna(right)
 
 
-@pytest.fixture(params=[0, np.nan], name="data_for_grouping")
-def data_for_grouping_fixture(request):
-    return data_for_grouping(request)
-
-
+@pytest.fixture(params=[0, np.nan])
 def data_for_grouping(request):
     return SparseArray([1, 1, np.nan, np.nan, 2, 2, 1, 3], fill_value=request.param)
 

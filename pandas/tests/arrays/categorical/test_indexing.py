@@ -252,11 +252,7 @@ def test_mask_with_boolean_raises(index):
         s[idx]
 
 
-@pytest.fixture(name="non_coercible_categorical")
-def non_coercible_categorical_fixture(monkeypatch):
-    return non_coercible_categorical(monkeypatch)
-
-
+@pytest.fixture
 def non_coercible_categorical(monkeypatch):
     """
     Monkeypatch Categorical.__array__ to ensure no implicit conversion.

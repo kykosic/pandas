@@ -24,20 +24,12 @@ from pandas.util.testing import (
 import pandas.tseries.offsets as offsets
 
 
-@pytest.fixture(, name="_index_factory")
-def _index_factory_fixture():
-    return _index_factory()
-
-
+@pytest.fixture()
 def _index_factory():
     return period_range
 
 
-@pytest.fixture(name="_series_name")
-def _series_name_fixture():
-    return _series_name()
-
-
+@pytest.fixture
 def _series_name():
     return "pi"
 

@@ -19,10 +19,7 @@ class TestAsOfMerge:
         x.time = to_datetime(x.time)
         return x
 
-    @pytest.fixture(autouse=True, name="setup_method")
-    def setup_method_fixture(self, datapath):
-        return self.setup_method(datapath)
-
+    @pytest.fixture(autouse=True)
     def setup_method(self, datapath):
 
         self.trades = self.read_data(datapath, "trades.csv")

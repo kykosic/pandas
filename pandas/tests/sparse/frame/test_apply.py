@@ -7,29 +7,17 @@ from pandas.core.sparse.api import SparseDtype
 from pandas.util import testing as tm
 
 
-@pytest.fixture(name="dates")
-def dates_fixture():
-    return dates()
-
-
+@pytest.fixture
 def dates():
     return bdate_range("1/1/2011", periods=10)
 
 
-@pytest.fixture(name="empty")
-def empty_fixture():
-    return empty()
-
-
+@pytest.fixture
 def empty():
     return SparseDataFrame()
 
 
-@pytest.fixture(name="frame")
-def frame_fixture(dates):
-    return frame(dates)
-
-
+@pytest.fixture
 def frame(dates):
     data = {
         "A": [np.nan, np.nan, np.nan, 0, 1, 2, 3, 4, 5, 6],
@@ -41,11 +29,7 @@ def frame(dates):
     return SparseDataFrame(data, index=dates)
 
 
-@pytest.fixture(name="fill_frame")
-def fill_frame_fixture(frame):
-    return fill_frame(frame)
-
-
+@pytest.fixture
 def fill_frame(frame):
     values = frame.values.copy()
     values[np.isnan(values)] = 2

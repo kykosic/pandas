@@ -12,20 +12,12 @@ import pandas as pd
 import pandas.util.testing as tm
 
 
-@pytest.fixture(params=[True, False], name="buffer")
-def buffer_fixture(request):
-    return buffer(request)
-
-
+@pytest.fixture(params=[True, False])
 def buffer(request):
     return request.param
 
 
-@pytest.fixture(name="parser_and_data")
-def parser_and_data_fixture(all_parsers, csv1):
-    return parser_and_data(all_parsers, csv1)
-
-
+@pytest.fixture
 def parser_and_data(all_parsers, csv1):
     parser = all_parsers
 

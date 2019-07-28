@@ -5,11 +5,7 @@ from pandas import DataFrame
 from pandas.util.testing import assert_frame_equal
 
 
-@pytest.fixture(name="df1")
-def df1_fixture():
-    return df1()
-
-
+@pytest.fixture
 def df1():
     return DataFrame(
         dict(
@@ -20,11 +16,7 @@ def df1():
     )
 
 
-@pytest.fixture(name="df2")
-def df2_fixture():
-    return df2()
-
-
+@pytest.fixture
 def df2():
     return DataFrame(
         dict(
@@ -35,11 +27,7 @@ def df2():
     )
 
 
-@pytest.fixture(params=[[], ["outer"], ["outer", "inner"]], name="left_df")
-def left_df_fixture(request, df1):
-    return left_df(request, df1)
-
-
+@pytest.fixture(params=[[], ["outer"], ["outer", "inner"]])
 def left_df(request, df1):
     """ Construct left test DataFrame with specified levels
     (any of 'outer', 'inner', and 'v1')"""
@@ -50,11 +38,7 @@ def left_df(request, df1):
     return df1
 
 
-@pytest.fixture(params=[[], ["outer"], ["outer", "inner"]], name="right_df")
-def right_df_fixture(request, df2):
-    return right_df(request, df2)
-
-
+@pytest.fixture(params=[[], ["outer"], ["outer", "inner"]])
 def right_df(request, df2):
     """ Construct right test DataFrame with specified levels
     (any of 'outer', 'inner', and 'v2')"""

@@ -26,11 +26,7 @@ def series(request):
     return request.param
 
 
-@pytest.fixture(params=[True, False], name="index")
-def index_fixture(request):
-    return index(request)
-
-
+@pytest.fixture(params=[True, False])
 def index(request):
     return request.param
 

@@ -55,42 +55,26 @@ def engine(request):
     return request.param
 
 
-@pytest.fixture(name="pa")
-def pa_fixture():
-    return pa()
-
-
+@pytest.fixture
 def pa():
     if not _HAVE_PYARROW:
         pytest.skip("pyarrow is not installed")
     return "pyarrow"
 
 
-@pytest.fixture(name="fp")
-def fp_fixture():
-    return fp()
-
-
+@pytest.fixture
 def fp():
     if not _HAVE_FASTPARQUET:
         pytest.skip("fastparquet is not installed")
     return "fastparquet"
 
 
-@pytest.fixture(name="df_compat")
-def df_compat_fixture():
-    return df_compat()
-
-
+@pytest.fixture
 def df_compat():
     return pd.DataFrame({"A": [1, 2, 3], "B": "foo"})
 
 
-@pytest.fixture(name="df_cross_compat")
-def df_cross_compat_fixture():
-    return df_cross_compat()
-
-
+@pytest.fixture
 def df_cross_compat():
     df = pd.DataFrame(
         {
@@ -108,11 +92,7 @@ def df_cross_compat():
     return df
 
 
-@pytest.fixture(name="df_full")
-def df_full_fixture():
-    return df_full()
-
-
+@pytest.fixture
 def df_full():
     return pd.DataFrame(
         {

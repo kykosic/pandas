@@ -24,11 +24,7 @@ class CustomBlock(NonConsolidatableMixIn, Block):
         )
 
 
-@pytest.fixture(name="df")
-def df_fixture():
-    return df()
-
-
+@pytest.fixture
 def df():
     df1 = pd.DataFrame({"a": [1, 2, 3]})
     blocks = df1._data.blocks

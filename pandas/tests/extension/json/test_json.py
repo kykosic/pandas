@@ -12,20 +12,12 @@ import pandas.util.testing as tm
 from .array import JSONArray, JSONDtype, make_data
 
 
-@pytest.fixture(name="dtype")
-def dtype_fixture():
-    return dtype()
-
-
+@pytest.fixture
 def dtype():
     return JSONDtype()
 
 
-@pytest.fixture(name="data")
-def data_fixture():
-    return data()
-
-
+@pytest.fixture
 def data():
     """Length-100 PeriodArray for semantics test."""
     data = make_data()
@@ -42,57 +34,33 @@ def data():
     return JSONArray(data)
 
 
-@pytest.fixture(name="data_missing")
-def data_missing_fixture():
-    return data_missing()
-
-
+@pytest.fixture
 def data_missing():
     """Length 2 array with [NA, Valid]"""
     return JSONArray([{}, {"a": 10}])
 
 
-@pytest.fixture(name="data_for_sorting")
-def data_for_sorting_fixture():
-    return data_for_sorting()
-
-
+@pytest.fixture
 def data_for_sorting():
     return JSONArray([{"b": 1}, {"c": 4}, {"a": 2, "c": 3}])
 
 
-@pytest.fixture(name="data_missing_for_sorting")
-def data_missing_for_sorting_fixture():
-    return data_missing_for_sorting()
-
-
+@pytest.fixture
 def data_missing_for_sorting():
     return JSONArray([{"b": 1}, {}, {"a": 4}])
 
 
-@pytest.fixture(name="na_value")
-def na_value_fixture(dtype):
-    return na_value(dtype)
-
-
+@pytest.fixture
 def na_value(dtype):
     return dtype.na_value
 
 
-@pytest.fixture(name="na_cmp")
-def na_cmp_fixture():
-    return na_cmp()
-
-
+@pytest.fixture
 def na_cmp():
     return operator.eq
 
 
-@pytest.fixture(name="data_for_grouping")
-def data_for_grouping_fixture():
-    return data_for_grouping()
-
-
+@pytest.fixture
 def data_for_grouping():
     return JSONArray(
         [

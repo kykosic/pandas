@@ -27,11 +27,7 @@ def dtype(request):
     return request.param
 
 
-@pytest.fixture(params=[skipif_32bit(1), skipif_32bit(2), 10], name="leaf_size")
-def leaf_size_fixture(request):
-    return leaf_size(request)
-
-
+@pytest.fixture(params=[skipif_32bit(1), skipif_32bit(2), 10])
 def leaf_size(request):
     """
     Fixture to specify IntervalTree leaf_size parameter; to be used with the

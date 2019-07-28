@@ -1,11 +1,7 @@
 import pytest
 
 
-@pytest.fixture(params=[True, False], name="raw")
-def raw_fixture(request):
-    return raw(request)
-
-
+@pytest.fixture(params=[True, False])
 def raw(request):
     return request.param
 
@@ -26,11 +22,7 @@ def win_types(request):
     return request.param
 
 
-@pytest.fixture(params=["kaiser", "gaussian", "general_gaussian", "exponential"], name="win_types_special")
-def win_types_special_fixture(request):
-    return win_types_special(request)
-
-
+@pytest.fixture(params=["kaiser", "gaussian", "general_gaussian", "exponential"])
 def win_types_special(request):
     return request.param
 
@@ -42,28 +34,16 @@ def arithmetic_win_operators(request):
     return request.param
 
 
-@pytest.fixture(params=["right", "left", "both", "neither"], name="closed")
-def closed_fixture(request):
-    return closed(request)
-
-
+@pytest.fixture(params=["right", "left", "both", "neither"])
 def closed(request):
     return request.param
 
 
-@pytest.fixture(params=[True, False], name="center")
-def center_fixture(request):
-    return center(request)
-
-
+@pytest.fixture(params=[True, False])
 def center(request):
     return request.param
 
 
-@pytest.fixture(params=[None, 1], name="min_periods")
-def min_periods_fixture(request):
-    return min_periods(request)
-
-
+@pytest.fixture(params=[None, 1])
 def min_periods(request):
     return request.param

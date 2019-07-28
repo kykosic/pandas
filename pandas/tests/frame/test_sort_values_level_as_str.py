@@ -8,11 +8,7 @@ from pandas.util import testing as tm
 from pandas.util.testing import assert_frame_equal
 
 
-@pytest.fixture(name="df_none")
-def df_none_fixture():
-    return df_none()
-
-
+@pytest.fixture
 def df_none():
     return DataFrame(
         {
@@ -24,11 +20,7 @@ def df_none():
     )
 
 
-@pytest.fixture(params=[["outer"], ["outer", "inner"]], name="df_idx")
-def df_idx_fixture(request, df_none):
-    return df_idx(request, df_none)
-
-
+@pytest.fixture(params=[["outer"], ["outer", "inner"]])
 def df_idx(request, df_none):
     levels = request.param
     return df_none.set_index(levels)
@@ -50,11 +42,7 @@ def sort_names(request):
     return request.param
 
 
-@pytest.fixture(params=[True, False], name="ascending")
-def ascending_fixture(request):
-    return ascending(request)
-
-
+@pytest.fixture(params=[True, False])
 def ascending(request):
     return request.param
 

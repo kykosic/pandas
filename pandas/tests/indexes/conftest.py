@@ -24,20 +24,12 @@ indices_list = [
 ]
 
 
-@pytest.fixture(params=indices_list, ids=lambda x: type(x).__name__, name="indices")
-def indices_fixture(request):
-    return indices(request)
-
-
+@pytest.fixture(params=indices_list, ids=lambda x: type(x).__name__)
 def indices(request):
     return request.param
 
 
-@pytest.fixture(params=[1, np.array(1, dtype=np.int64)], name="one")
-def one_fixture(request):
-    return one(request)
-
-
+@pytest.fixture(params=[1, np.array(1, dtype=np.int64)])
 def one(request):
     # zero-dim integer array behaves like an integer
     return request.param
@@ -52,11 +44,7 @@ zeros.extend([np.array(0, dtype=dtype) for dtype in [np.int64, np.uint64, np.flo
 zeros.extend([0, 0.0])
 
 
-@pytest.fixture(params=zeros, name="zero")
-def zero_fixture(request):
-    return zero(request)
-
-
+@pytest.fixture(params=zeros)
 def zero(request):
     # For testing division by (or of) zero for Index with length 5, this
     # gives several scalar-zeros and length-5 vector-zeros

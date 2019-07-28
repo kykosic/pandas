@@ -11,11 +11,7 @@ from pandas._libs.tslibs.frequencies import (
 import pandas.tseries.offsets as offsets
 
 
-@pytest.fixture(params=list(_period_code_map.items()), name="period_code_item")
-def period_code_item_fixture(request):
-    return period_code_item(request)
-
-
+@pytest.fixture(params=list(_period_code_map.items()))
 def period_code_item(request):
     return request.param
 
