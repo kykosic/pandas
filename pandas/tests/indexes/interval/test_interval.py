@@ -22,7 +22,11 @@ from pandas.tests.indexes.common import Base
 import pandas.util.testing as tm
 
 
-@pytest.fixture(scope="class", params=[None, "foo"])
+@pytest.fixture(scope="class", params=[None, "foo"], name="name")
+def name_fixture(request):
+    return name(request)
+
+
 def name(request):
     return request.param
 

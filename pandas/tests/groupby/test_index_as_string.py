@@ -5,7 +5,11 @@ import pandas as pd
 from pandas.util.testing import assert_frame_equal, assert_series_equal
 
 
-@pytest.fixture(params=[["inner"], ["inner", "outer"]])
+@pytest.fixture(params=[["inner"], ["inner", "outer"]], name="frame")
+def frame_fixture(request):
+    return frame(request)
+
+
 def frame(request):
     levels = request.param
     df = pd.DataFrame(
@@ -22,7 +26,11 @@ def frame(request):
     return df
 
 
-@pytest.fixture()
+@pytest.fixture(name="series")
+def series_fixture():
+    return series()
+
+
 def series():
     df = pd.DataFrame(
         {

@@ -294,7 +294,11 @@ bar2,12,13,14,15
         tm.assert_frame_equal(result, expected)
 
 
-@pytest.fixture
+@pytest.fixture(name="mmap_file")
+def mmap_file_fixture(datapath):
+    return mmap_file(datapath)
+
+
 def mmap_file(datapath):
     return datapath("io", "data", "test_mmap.csv")
 

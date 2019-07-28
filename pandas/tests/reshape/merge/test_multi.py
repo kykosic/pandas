@@ -12,7 +12,11 @@ from pandas.core.reshape.merge import merge
 import pandas.util.testing as tm
 
 
-@pytest.fixture
+@pytest.fixture(name="left")
+def left_fixture():
+    return left()
+
+
 def left():
     """left dataframe (not multi-indexed) for multi-index join tests"""
     # a little relevant example with NAs
@@ -23,7 +27,11 @@ def left():
     return DataFrame({"key1": key1, "key2": key2, "data": data})
 
 
-@pytest.fixture
+@pytest.fixture(name="right")
+def right_fixture():
+    return right()
+
+
 def right():
     """right dataframe (multi-indexed) for multi-index join tests"""
     index = MultiIndex(
@@ -37,7 +45,11 @@ def right():
     )
 
 
-@pytest.fixture
+@pytest.fixture(name="left_multi")
+def left_multi_fixture():
+    return left_multi()
+
+
 def left_multi():
     return DataFrame(
         dict(
@@ -51,7 +63,11 @@ def left_multi():
     ).set_index(["Origin", "Destination", "Period", "TripPurp"])
 
 
-@pytest.fixture
+@pytest.fixture(name="right_multi")
+def right_multi_fixture():
+    return right_multi()
+
+
 def right_multi():
     return DataFrame(
         dict(
@@ -65,12 +81,20 @@ def right_multi():
     ).set_index(["Origin", "Destination", "Period", "LinkType"])
 
 
-@pytest.fixture
+@pytest.fixture(name="on_cols_multi")
+def on_cols_multi_fixture():
+    return on_cols_multi()
+
+
 def on_cols_multi():
     return ["Origin", "Destination", "Period"]
 
 
-@pytest.fixture
+@pytest.fixture(name="idx_cols_multi")
+def idx_cols_multi_fixture():
+    return idx_cols_multi()
+
+
 def idx_cols_multi():
     return ["Origin", "Destination", "Period", "TripPurp", "LinkType"]
 

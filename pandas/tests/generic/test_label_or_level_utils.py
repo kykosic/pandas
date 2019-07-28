@@ -7,13 +7,21 @@ import pandas as pd
 
 # Fixtures
 # ========
-@pytest.fixture
+@pytest.fixture(name="df")
+def df_fixture():
+    return df()
+
+
 def df():
     """DataFrame with columns 'L1', 'L2', and 'L3' """
     return pd.DataFrame({"L1": [1, 2, 3], "L2": [11, 12, 13], "L3": ["A", "B", "C"]})
 
 
-@pytest.fixture(params=[[], ["L1"], ["L1", "L2"], ["L1", "L2", "L3"]])
+@pytest.fixture(params=[[], ["L1"], ["L1", "L2"], ["L1", "L2", "L3"]], name="df_levels")
+def df_levels_fixture(request, df):
+    return df_levels(request, df)
+
+
 def df_levels(request, df):
     """DataFrame with columns or index levels 'L1', 'L2', and 'L3' """
     levels = request.param
@@ -24,7 +32,11 @@ def df_levels(request, df):
     return df
 
 
-@pytest.fixture
+@pytest.fixture(name="df_ambig")
+def df_ambig_fixture(df):
+    return df_ambig(df)
+
+
 def df_ambig(df):
     """DataFrame with levels 'L1' and 'L2' and labels 'L1' and 'L3' """
     df = df.set_index(["L1", "L2"])
@@ -34,7 +46,11 @@ def df_ambig(df):
     return df
 
 
-@pytest.fixture
+@pytest.fixture(name="df_duplabels")
+def df_duplabels_fixture(df):
+    return df_duplabels(df)
+
+
 def df_duplabels(df):
     """DataFrame with level 'L1' and labels 'L2', 'L3', and 'L2' """
     df = df.set_index(["L1"])

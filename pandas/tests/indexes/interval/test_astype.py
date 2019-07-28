@@ -80,7 +80,10 @@ class TestIntSubtype(Base):
         IntervalIndex.from_breaks(np.arange(100, dtype="uint64"), closed="left"),
     ]
 
-    @pytest.fixture(params=indexes)
+    @pytest.fixture(params=indexes, name="index")
+    def index_fixture(self, request):
+        return self.index(request)
+
     def index(self, request):
         return request.param
 
@@ -128,7 +131,10 @@ class TestFloatSubtype(Base):
         ),
     ]
 
-    @pytest.fixture(params=indexes)
+    @pytest.fixture(params=indexes, name="index")
+    def index_fixture(self, request):
+        return self.index(request)
+
     def index(self, request):
         return request.param
 
@@ -184,7 +190,10 @@ class TestDatetimelikeSubtype(Base):
         interval_range(Timedelta("0 days"), periods=10).insert(2, NaT),
     ]
 
-    @pytest.fixture(params=indexes)
+    @pytest.fixture(params=indexes, name="index")
+    def index_fixture(self, request):
+        return self.index(request)
+
     def index(self, request):
         return request.param
 

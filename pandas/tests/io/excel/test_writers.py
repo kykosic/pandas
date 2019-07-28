@@ -235,7 +235,10 @@ class TestRoundTrip:
 
 
 class _WriterBase:
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="set_engine_and_path")
+    def set_engine_and_path_fixture(self, engine, ext):
+        return self.set_engine_and_path(engine, ext)
+
     def set_engine_and_path(self, engine, ext):
         """Fixture to set engine and open file for use in each test case
 

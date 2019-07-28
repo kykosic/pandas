@@ -202,7 +202,11 @@ def test_frame_mixed_depth_get():
 # ----------------------------------------------------------------------------
 
 
-@pytest.fixture
+@pytest.fixture(name="dataframe_with_duplicate_index")
+def dataframe_with_duplicate_index_fixture():
+    return dataframe_with_duplicate_index()
+
+
 def dataframe_with_duplicate_index():
     """Fixture for DataFrame used in tests for gh-4145 and gh-4146"""
     data = [["a", "d", "e", "c", "f", "b"], [1, 4, 5, 3, 6, 2], [1, 4, 5, 3, 6, 2]]

@@ -14,7 +14,11 @@ from pandas import Categorical, Period, Series, Timedelta, Timestamp, date_range
 from pandas.util import testing as tm
 
 
-@pytest.fixture(params=[True, False])
+@pytest.fixture(params=[True, False], name="pandas_dtype")
+def pandas_dtype_fixture(request):
+    return pandas_dtype(request)
+
+
 def pandas_dtype(request):
     return request.param
 

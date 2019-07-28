@@ -53,43 +53,75 @@ def dtype(request):
     return request.param()
 
 
-@pytest.fixture
+@pytest.fixture(name="data")
+def data_fixture(dtype):
+    return data(dtype)
+
+
 def data(dtype):
     return integer_array(make_data(), dtype=dtype)
 
 
-@pytest.fixture
+@pytest.fixture(name="data_for_twos")
+def data_for_twos_fixture(dtype):
+    return data_for_twos(dtype)
+
+
 def data_for_twos(dtype):
     return integer_array(np.ones(100) * 2, dtype=dtype)
 
 
-@pytest.fixture
+@pytest.fixture(name="data_missing")
+def data_missing_fixture(dtype):
+    return data_missing(dtype)
+
+
 def data_missing(dtype):
     return integer_array([np.nan, 1], dtype=dtype)
 
 
-@pytest.fixture
+@pytest.fixture(name="data_for_sorting")
+def data_for_sorting_fixture(dtype):
+    return data_for_sorting(dtype)
+
+
 def data_for_sorting(dtype):
     return integer_array([1, 2, 0], dtype=dtype)
 
 
-@pytest.fixture
+@pytest.fixture(name="data_missing_for_sorting")
+def data_missing_for_sorting_fixture(dtype):
+    return data_missing_for_sorting(dtype)
+
+
 def data_missing_for_sorting(dtype):
     return integer_array([1, np.nan, 0], dtype=dtype)
 
 
-@pytest.fixture
+@pytest.fixture(name="na_cmp")
+def na_cmp_fixture():
+    return na_cmp()
+
+
 def na_cmp():
     # we are np.nan
     return lambda x, y: np.isnan(x) and np.isnan(y)
 
 
-@pytest.fixture
+@pytest.fixture(name="na_value")
+def na_value_fixture():
+    return na_value()
+
+
 def na_value():
     return np.nan
 
 
-@pytest.fixture
+@pytest.fixture(name="data_for_grouping")
+def data_for_grouping_fixture(dtype):
+    return data_for_grouping(dtype)
+
+
 def data_for_grouping(dtype):
     b = 1
     a = 0

@@ -7,7 +7,11 @@ from pandas.core.arrays import IntervalArray
 import pandas.util.testing as tm
 
 
-@pytest.fixture(params=[IntervalArray, IntervalIndex])
+@pytest.fixture(params=[IntervalArray, IntervalIndex], name="constructor")
+def constructor_fixture(request):
+    return constructor(request)
+
+
 def constructor(request):
     """
     Fixture for testing both interval container classes.

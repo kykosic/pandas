@@ -109,7 +109,11 @@ def df(request):
         raise ValueError
 
 
-@pytest.fixture
+@pytest.fixture(name="mock_clipboard")
+def mock_clipboard_fixture(monkeypatch, request):
+    return mock_clipboard(monkeypatch, request)
+
+
 def mock_clipboard(monkeypatch, request):
     """Fixture mocking clipboard IO.
 

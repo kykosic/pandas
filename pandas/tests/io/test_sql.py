@@ -277,7 +277,10 @@ class PandasSQLTest:
         else:
             return self.conn.cursor()
 
-    @pytest.fixture(params=[("io", "data", "iris.csv")])
+    @pytest.fixture(params=[("io", "data", "iris.csv")], name="load_iris_data")
+    def load_iris_data_fixture(self, datapath, request):
+        return self.load_iris_data(datapath, request)
+
     def load_iris_data(self, datapath, request):
         import io
 
@@ -588,7 +591,10 @@ class _TestSQLApi(PandasSQLTest):
     def setup_connect(self):
         self.conn = self.connect()
 
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="setup_method")
+    def setup_method_fixture(self, load_iris_data):
+        return self.setup_method(load_iris_data)
+
     def setup_method(self, load_iris_data):
         self.load_test_data_and_sql()
 
@@ -1120,7 +1126,10 @@ class _EngineToConnMixin:
     A mixin that causes setup_connect to create a conn rather than an engine.
     """
 
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="setup_method")
+    def setup_method_fixture(self, load_iris_data):
+        return self.setup_method(load_iris_data)
+
     def setup_method(self, load_iris_data):
         super().load_test_data_and_sql()
         engine = self.conn
@@ -1236,7 +1245,11 @@ class _TestSQLAlchemy(SQLAlchemyMixIn, PandasSQLTest):
 
     flavor = None
 
-    @pytest.fixture(autouse=True, scope="class")
+    @pytest.fixture(autouse=True, scope="class", name="setup_class")
+    def setup_class_fixture(cls):
+        return setup_class(cls)
+
+
     def setup_class(cls):
         cls.setup_import()
         cls.setup_driver()
@@ -1247,7 +1260,10 @@ class _TestSQLAlchemy(SQLAlchemyMixIn, PandasSQLTest):
         self._load_raw_sql()
         self._load_test1_data()
 
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="setup_method")
+    def setup_method_fixture(self, load_iris_data):
+        return self.setup_method(load_iris_data)
+
     def setup_method(self, load_iris_data):
         self.load_test_data_and_sql()
 
@@ -2128,7 +2144,10 @@ class TestSQLiteFallback(SQLiteMixIn, PandasSQLTest):
         self.pandasSQL = sql.SQLiteDatabase(self.conn)
         self._load_test1_data()
 
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="setup_method")
+    def setup_method_fixture(self, load_iris_data):
+        return self.setup_method(load_iris_data)
+
     def setup_method(self, load_iris_data):
         self.load_test_data_and_sql()
 
@@ -2350,7 +2369,10 @@ def tquery(query, con=None, cur=None):
 
 @pytest.mark.single
 class TestXSQLite(SQLiteMixIn):
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="setup_method")
+    def setup_method_fixture(self, request, datapath):
+        return self.setup_method(request, datapath)
+
     def setup_method(self, request, datapath):
         self.method = request.function
         self.conn = sqlite3.connect(":memory:")
@@ -2581,7 +2603,11 @@ class TestXSQLite(SQLiteMixIn):
     reason="gh-13611: there is no support for MySQL if SQLAlchemy is not installed"
 )
 class TestXMySQL(MySQLMixIn):
-    @pytest.fixture(autouse=True, scope="class")
+    @pytest.fixture(autouse=True, scope="class", name="setup_class")
+    def setup_class_fixture(cls):
+        return setup_class(cls)
+
+
     def setup_class(cls):
         pymysql = pytest.importorskip("pymysql")
         pymysql.connect(host="localhost", user="root", passwd="", db="pandas_nosetest")
@@ -2601,7 +2627,10 @@ class TestXMySQL(MySQLMixIn):
                 "typically located at ~/.my.cnf or /etc/.my.cnf."
             )
 
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="setup_method")
+    def setup_method_fixture(self, request, datapath):
+        return self.setup_method(request, datapath)
+
     def setup_method(self, request, datapath):
         pymysql = pytest.importorskip("pymysql")
         pymysql.connect(host="localhost", user="root", passwd="", db="pandas_nosetest")

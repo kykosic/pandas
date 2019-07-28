@@ -69,7 +69,10 @@ def engine(request):
 
 
 class TestReaders:
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="cd_and_set_engine")
+    def cd_and_set_engine_fixture(self, engine, datapath, monkeypatch, read_ext):
+        return self.cd_and_set_engine(engine, datapath, monkeypatch, read_ext)
+
     def cd_and_set_engine(self, engine, datapath, monkeypatch, read_ext):
         """
         Change directory and set engine for read_excel calls.
@@ -816,7 +819,10 @@ class TestReaders:
 
 
 class TestExcelFileRead:
-    @pytest.fixture(autouse=True)
+    @pytest.fixture(autouse=True, name="cd_and_set_engine")
+    def cd_and_set_engine_fixture(self, engine, datapath, monkeypatch, read_ext):
+        return self.cd_and_set_engine(engine, datapath, monkeypatch, read_ext)
+
     def cd_and_set_engine(self, engine, datapath, monkeypatch, read_ext):
         """
         Change directory and set engine for ExcelFile objects.

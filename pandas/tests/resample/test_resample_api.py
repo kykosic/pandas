@@ -16,7 +16,11 @@ test_series = Series(np.random.rand(len(dti)), dti)
 _test_frame = DataFrame({"A": test_series, "B": test_series, "C": np.arange(len(dti))})
 
 
-@pytest.fixture
+@pytest.fixture(name="test_frame")
+def test_frame_fixture():
+    return test_frame()
+
+
 def test_frame():
     return _test_frame.copy()
 

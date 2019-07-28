@@ -10,7 +10,11 @@ xlrd = pytest.importorskip("xlrd")
 xlwt = pytest.importorskip("xlwt")
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True, name="skip_ods_files")
+def skip_ods_files_fixture(read_ext):
+    return skip_ods_files(read_ext)
+
+
 def skip_ods_files(read_ext):
     if read_ext == ".ods":
         pytest.skip("Not valid for xlrd")

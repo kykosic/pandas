@@ -10,19 +10,31 @@ pytest.importorskip("pyarrow", minversion="0.10.0")
 from .bool import ArrowBoolArray, ArrowBoolDtype  # isort:skip
 
 
-@pytest.fixture
+@pytest.fixture(name="dtype")
+def dtype_fixture():
+    return dtype()
+
+
 def dtype():
     return ArrowBoolDtype()
 
 
-@pytest.fixture
+@pytest.fixture(name="data")
+def data_fixture():
+    return data()
+
+
 def data():
     values = np.random.randint(0, 2, size=100, dtype=bool)
     values[1] = ~values[0]
     return ArrowBoolArray.from_scalars(values)
 
 
-@pytest.fixture
+@pytest.fixture(name="data_missing")
+def data_missing_fixture():
+    return data_missing()
+
+
 def data_missing():
     return ArrowBoolArray.from_scalars([None, True])
 

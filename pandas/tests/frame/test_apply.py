@@ -17,7 +17,11 @@ import pandas.util.testing as tm
 from pandas.util.testing import assert_frame_equal, assert_series_equal
 
 
-@pytest.fixture
+@pytest.fixture(name="int_frame_const_col")
+def int_frame_const_col_fixture():
+    return int_frame_const_col()
+
+
 def int_frame_const_col():
     """
     Fixture for DataFrame of ints which are constant per column
